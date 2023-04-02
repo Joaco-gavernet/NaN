@@ -1,0 +1,73 @@
+ll be(ll x, ll y, ll m) {
+    if (y == 0) return 1;
+    ll p = be(x, y/2, m) % m;
+    p = (p * p) % m;
+    return (y%2 == 0)? p : (x * p) % m;
+}
+
+ll inv_mod(ll x, ll m) {return be(x,m-2,m);}
+
+struct BIT {
+	vector <ll> prefix, a; ll M;
+	BIT() {}
+	BIT(vector <ll> &v, ll MOD) {
+		int n = v.size(); prefix.resize(n+1); a = v; M = MOD;
+		vector <ll> aux(n+1,0);
+		forn(i,n) aux[i+1] = (aux[i] + v[i]) % M;
+		forr(i,1,n+1) prefix[i] = (aux[i] + M - aux[i - (i&(-i))]) % M;
+	}
+	ll query(int l, int r) { //[a,b] 0-indexed
+		ll ans = 0; r++;
+		while(r) ans += prefix[r], r -= r&(-r), ans %= M;
+		while(l) ans += M - prefix[l], l -= l&(-l), ans %= M;
+		return ans;
+	}
+	void update(int pos, ll val) {
+		int i = pos + 1; ll upd = (val + M - a[pos]) % M;
+		while(i < prefix.size()) prefix[i] += upd, prefix[i] %= M, i += i&(-i);
+		a[pos] = val;
+	}
+};
+
+struct Hashing {
+	int n;
+	const ll MOD[2] = {999727999, 1070777777}; 
+	vector <ll> prefix[2], rev[2], pot[2], inv_pot[2];
+	ll P = 31, invP[2] = {inv_mod(P,MOD[0]), inv_mod(P,MOD[1])};
+	BIT s[2], rs[2];
+	Hashing() {}
+	Hashing(string &pal) {
+		n = pal.size(); 
+		forn(k,2) {
+			prefix[k].resize(n,0); rev[k].resize(n,0);
+			pot[k].resize(n,1); inv_pot[k].resize(n,1);
+			forn(i,n) {
+				if(i) pot[k][i] = (pot[k][i-1] * P) % MOD[k];
+				if(i) inv_pot[k][i] = (inv_pot[k][i-1] * invP[k]) % MOD[k];
+				prefix[k][i] = (ll)(pal[i]-'a') * pot[k][i] % MOD[k];
+				rev[k][i] = (ll)(pal[n-i-1]-'a') * pot[k][i] % MOD[k];
+			}
+			s[k] = BIT(prefix[k],MOD[k]);
+			rs[k] = BIT(rev[k],MOD[k]);
+		}
+	}
+	pair<ll,ll> get(int l, int r) { //[l,r] 0-indexed
+		ll x = (s[0].query(l,r) * inv_pot[0][l]) % MOD[0];
+		ll y = (s[1].query(l,r) * inv_pot[1][l]) % MOD[1];
+		return {x,y};
+	}
+	pair<ll,ll> getr(int l, int r) { //[l,r] 0-indexed
+		l = n-1-l, r = n-1-r; swap(l,r); 
+		ll x = (rs[0].query(l,r) * inv_pot[0][l]) % MOD[0];
+		ll y = (rs[1].query(l,r) * inv_pot[1][l]) % MOD[1];
+		return {x,y};
+	}
+	void update(int pos, char a) {
+		ll val = (ll)(a-'a');
+		forn(k,2) {
+			s[k].update(pos,(val * pot[k][pos]) % MOD[k]);
+			assert(n-1-pos >= 0);
+			rs[k].update(n-1-pos,(val * pot[k][n-1-pos]) % MOD[k]);
+		} 
+	}
+};
