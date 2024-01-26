@@ -17,7 +17,6 @@ vector<nodo> ans(MAXN);
 vector<int> ciclo; 
 
 bool bFord(vector<arista> &lista, int n, int start) {
-    int m = lista.size();
     forn(i,n) ans[i].p = i, ans[i].d = INF;
     ans[start].d = 0; int x;
     forn(i,n) {
