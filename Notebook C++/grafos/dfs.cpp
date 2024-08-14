@@ -1,5 +1,5 @@
 const int MAXN = 200005;
-vector< vector<int> > g; // graph represented as an adjacency list
+vector< vector<int> > g(MAXN); // graph represented as an adjacency list
 vector <bool> visto(MAXN,false);
 
 void dfs(int v) {
