@@ -4,9 +4,9 @@ const int NEUT = 0; // REMINDER !!!
 struct node {
 	tipo ans, l, r, lazy = 0;
 	bool upd = false;
-	node() {ans = lazy = 0; upd = false; l = r = -1;} // REMINDER !!! SET NEUT
+	node() { ans = lazy = 0; upd = false; l = r = -1; } // REMINDER !!! SET NEUT
 	node(tipo val, int pos) : ans(val), l(pos), r(pos) {} // Set node
-	void set_lazy(tipo x) {lazy += x; upd = true;}
+	void set_lazy(tipo x) { lazy += x; upd = true; }
 };
  
 struct segtree_lazy {
@@ -20,16 +20,24 @@ struct segtree_lazy {
 		aux.l = a.l; aux.r = b.r;
 		return aux;
 	}
+
+	void node_update(node &cur) {
+		cur.ans += cur.lazy * (cur.r-cur.l+1); //Operacion update
+	}
+
+	void reset_lazy(node &cur) {
+		cur.lazy = 0; cur.upd = false; //Poner el neutro del update
+	}
 	
 	void push(int p) {
 		node &cur = t[p];
 		if(cur.upd == true) {
-			cur.ans += cur.lazy * (cur.r-cur.l+1); //Operacion update
+			node_update(cur);
 			if(cur.l < cur.r) {
-				t[l(p)].lazy += cur.lazy; t[l(p)].upd = true;
-				t[r(p)].lazy += cur.lazy; t[r(p)].upd = true;
+				t[l(p)].set_lazy(cur.lazy);
+				t[r(p)].set_lazy(cur.lazy);
 			}
-			cur.lazy = 0; cur.upd = false; //Poner el neutro del update
+			reset_lazy(cur);
 		}
 	}
  
