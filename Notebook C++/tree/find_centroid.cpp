@@ -16,7 +16,7 @@ void DFS(int v, int prev, int n) {
 vector <int> find_centroid(int n) {
     // Centroid: A node so that each subtree has at most floor(n/2) nodes
     vector <int> ans;
-    DFS(1,-1,n);
+    DFS(0,-1,n);
     forr(i,1,n+1) if(is_centroid[i]) ans.pb(i); 
     return ans;
 }
