@@ -40,7 +40,7 @@ punto project(punto a, punto b) { //Proyeccion de b sobre a
     return ((a*b)/a.mod2()) * a;
 }
 
-vector <punto> inter_circ_line(recta r, circ c) {
+vector<punto> inter_circ_line(recta r, circ c) {
     vector <punto> ans; tipo dist = dist_point_line(c.c,r);
     if(dist > c.r+EPS) return ans;
     (c.c-r.p) * r.v != 0 ? r.p = r.p : r.p = r.p + r.v;
@@ -63,12 +63,30 @@ tipo intersection_area(circ a, circ b) {
     return ans1 + ans2;
 }
 
-vector <punto> inter_circ_circ(circ a, circ b) {
+vector<punto> inter_circ_circ(circ a, circ b) {
     vector <punto> ans;
-    if(a.c==b.c) {
-        return abs(a.r-b.r) <= EPS ? vector<punto>{a.c,a.c,a.c} : ans; }
+    if (a.c == b.c) {
+        return abs(a.r-b.r) <= EPS ? vector<punto>{a.c,a.c,a.c} : ans; 
+    }
     b.c = b.c - a.c; punto aux = a.c; a.c = a.c - a.c;
-    recta r(-2*b.c.x , -2*b.c.y , a.r*a.r - b.r*b.r + b.c.x*b.c.x + b.c.y*b.c.y);
+    recta r(-2*b.c.x, -2*b.c.y, a.r*a.r - b.r*b.r + b.c.x*b.c.x + b.c.y*b.c.y);
     ans = inter_circ_line(r,a); 
     forn(i,ans.size()) ans[i] = ans[i] + aux; return ans;
+}
+
+void tangents(punto c, double r1, double r2, vector<recta> & ans) {
+    double r = r2 - r1;
+    double z = c.xc.x + c.yc.y;
+    double d = z - rr;
+    if (d < -EPS)  return;
+    d = sqrt (abs (d));
+    recta l((c.x r + c.y * d) / z, (c.y * r - c.x * d) / z, r1);
+    ans.push_back (l);
+}
+
+vector<recta> tangents(circ a, circ b) {
+    vector<recta> ans;
+    for (int i=-1; i<=1; i+=2) for (int j=-1; j<=1; j+=2) tangents (b.c-a.c, a.ri, b.rj, ans);
+    forn(i,SZ(ans)) ans[i].p =ans[i].p + a.c;
+    return ans;
 }
