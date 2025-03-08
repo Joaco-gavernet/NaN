@@ -34,7 +34,11 @@ def add_section(section, path=""):
             add_section(x, path)
         else:
             print(f"\n\subsection{{{sanitize_problem_name(x).title()}}}", file=f)
-            print(f'\cppfile{{{path}/{x}}}', file=f)
+            if x[-3:] == "cpp":
+                print(f'\cppfile{{{path}/{x}}}', file=f)
+            else:
+                print(f'\pythonfile{{{path}/{x}}}', file=f)
+
 
     print("\n\\newpage", file=f)
 

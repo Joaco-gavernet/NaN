@@ -38,7 +38,7 @@
 \fancyfoot{}
 \definecolor{darkblue}{rgb}{0,0,0.4}
 %%% Configuracion de Listings
-\lstloadlanguages{C++}
+\lstloadlanguages{C++,Python}
 \lstnewenvironment{code}
 	{%\lstset{	numbers=none, frame=lines, basicstyle=\small\ttfamily, }%
 	 \csname lst@SetFirstLabel\endcsname}
@@ -75,6 +75,30 @@
     morecomment=[l][\color{OliveGreen}]{\#}
 }
 
+\lstdefinestyle{python}{
+    language=Python,                  % Establecer el lenguaje a Python
+    % basicstyle=\small\ttfamily,        % Estilo básico: tamaño pequeño y tipo de letra monoespaciada
+    % keywordstyle=\color{blue}\bfseries, % Palabras clave en azul y negrita
+    % stringstyle=\color{magenta},       % Cadenas de texto en color magenta
+    % commentstyle=\color{green},        % Comentarios en color verde
+    % morecomment=[l][\color{OliveGreen}]{\#}, % Comentarios que comienzan con '#'
+    % numbers=left,                      % Numeración de líneas a la izquierda
+    % numberstyle=\tiny\color{gray},     % Estilo de número de línea pequeño y gris
+    % stepnumber=1,                      % Numerar todas las líneas
+    % numbersep=5pt,                     % Separación entre los números y el código
+    % backgroundcolor=\color{white},     % Fondo blanco para el código
+    % frame=single,                      % Marco alrededor del código
+    % framesep=10pt,                     % Separación entre el código y el marco
+    % breaklines=true,                   % Ajuste automático de las líneas largas
+    % breakatwhitespace=true,            % Romper las líneas en los espacios
+    % showstringspaces=false,            % No mostrar los espacios en las cadenas
+    % tabsize=4,                          % Definir el tamaño de las tabulaciones
+    % captionpos=b,                      % Posicionar la leyenda (caption) abajo
+    % xleftmargin=20pt,                  % Margen izquierdo para el código
+    % xrightmargin=20pt,                 % Margen derecho para el código
+    % language=Python,                   % Establecer el lenguaje como Python
+}
+
 %%% Macros
 \def\nbtitle#1{\begin{Large}\begin{center}\textbf{#1}\end{center}\end{Large}}
 \def\nbsection#1{\section{#1}}
@@ -85,6 +109,9 @@
 \newcommand\cppfile[2][]{
 \lstinputlisting[language=C++,linerange={#1}]{#2}
 }
+\newcommand\pythonfile[2][]{
+\lstinputlisting[language=Python,linerange={#1}]{#2}
+}
 \newcommand\bashfile[2][]{
 \lstinputlisting[language=bash,linerange={#1}]{#2}
 }
@@ -94,7 +121,7 @@
 \begin{document}
 \def\title{Universidad Nacional de La Plata}
 %.\\[0.2cm]
-\centering{\LARGE\textbf{Estufa en Piloto}} \\[0.5cm]
-\centering{\includegraphics[width=5.5cm]{EstufaLogo.png}}
+\centering{\LARGE\textbf{NaN (Need a Name)}} \\[0.5cm]
+\centering{\includegraphics[width=5.5cm]{NaN.png}}
 \tableofcontents\newpage
 

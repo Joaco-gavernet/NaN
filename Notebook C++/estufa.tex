@@ -38,7 +38,7 @@
 \fancyfoot{}
 \definecolor{darkblue}{rgb}{0,0,0.4}
 %%% Configuracion de Listings
-\lstloadlanguages{C++}
+\lstloadlanguages{C++,Python}
 \lstnewenvironment{code}
 	{%\lstset{	numbers=none, frame=lines, basicstyle=\small\ttfamily, }%
 	 \csname lst@SetFirstLabel\endcsname}
@@ -55,7 +55,7 @@
     basicstyle=\ttfamily,
     keywordstyle=\color{darkblue}\ttfamily,
     stringstyle=\color{magenta}\ttfamily,
-    commentstyle=\color{red}\ttfamily,
+    commentstyle=\color{RedOrange}\ttfamily,
     morecomment=[l][\color{OliveGreen}]{\#}
 }
 
@@ -71,8 +71,32 @@
     basicstyle=\ttfamily,
     keywordstyle=\color{darkblue}\ttfamily,
     stringstyle=\color{magenta}\ttfamily,
-    commentstyle=\color{red}\ttfamily,
+    commentstyle=\color{RedOrange}\ttfamily,
     morecomment=[l][\color{OliveGreen}]{\#}
+}
+
+\lstdefinestyle{python}{
+    language=Python,                  % Establecer el lenguaje a Python
+    % basicstyle=\small\ttfamily,        % Estilo básico: tamaño pequeño y tipo de letra monoespaciada
+    % keywordstyle=\color{blue}\bfseries, % Palabras clave en azul y negrita
+    % stringstyle=\color{magenta},       % Cadenas de texto en color magenta
+    % commentstyle=\color{green},        % Comentarios en color verde
+    % morecomment=[l][\color{OliveGreen}]{\#}, % Comentarios que comienzan con '#'
+    % numbers=left,                      % Numeración de líneas a la izquierda
+    % numberstyle=\tiny\color{gray},     % Estilo de número de línea pequeño y gris
+    % stepnumber=1,                      % Numerar todas las líneas
+    % numbersep=5pt,                     % Separación entre los números y el código
+    % backgroundcolor=\color{white},     % Fondo blanco para el código
+    % frame=single,                      % Marco alrededor del código
+    % framesep=10pt,                     % Separación entre el código y el marco
+    % breaklines=true,                   % Ajuste automático de las líneas largas
+    % breakatwhitespace=true,            % Romper las líneas en los espacios
+    % showstringspaces=false,            % No mostrar los espacios en las cadenas
+    % tabsize=4,                          % Definir el tamaño de las tabulaciones
+    % captionpos=b,                      % Posicionar la leyenda (caption) abajo
+    % xleftmargin=20pt,                  % Margen izquierdo para el código
+    % xrightmargin=20pt,                 % Margen derecho para el código
+    % language=Python,                   % Establecer el lenguaje como Python
 }
 
 %%% Macros
@@ -85,6 +109,9 @@
 \newcommand\cppfile[2][]{
 \lstinputlisting[language=C++,linerange={#1}]{#2}
 }
+\newcommand\pythonfile[2][]{
+\lstinputlisting[language=Python,linerange={#1}]{#2}
+}
 \newcommand\bashfile[2][]{
 \lstinputlisting[language=bash,linerange={#1}]{#2}
 }
@@ -94,8 +121,8 @@
 \begin{document}
 \def\title{Universidad Nacional de La Plata}
 %.\\[0.2cm]
-\centering{\LARGE\textbf{Estufa en Piloto}} \\[0.5cm]
-\centering{\includegraphics[width=5.5cm]{EstufaLogo.png}}
+\centering{\LARGE\textbf{NaN (Need a Name)}} \\[0.5cm]
+\centering{\includegraphics[width=5.5cm]{NaN.png}}
 \tableofcontents\newpage
 
 
@@ -107,10 +134,10 @@
 \cppfile{general/plantilla.cpp}
 
 \subsection{Compilar}
-\cppfile{general/compilar.sh}
+\pythonfile{general/compilar.sh}
 
 \subsection{Informacion}
-\cppfile{general/informacion.cpp}
+\cppfile{general/INFORMACION.cpp}
 
 \subsection{Medir Tiempo}
 \cppfile{general/medir_tiempo.cpp}
@@ -146,7 +173,7 @@
 \cppfile{data_structures/linked_list.cpp}
 
 \subsection{Mo Dquery}
-\cppfile{data_structures/mo_dquery.cpp}
+\cppfile{data_structures/Mo_DQuery.cpp}
 
 \subsection{Segtree 2D}
 \cppfile{data_structures/segment_tree_iterative/segtree_2d.cpp}
@@ -160,16 +187,16 @@
 \newpage
 
 \subsection{Find Kth Min}
-\cppfile{data_structures/segment_tree_recursive/find_kth_min.cpp}
+\cppfile{data_structures/segment_tree_recursive/Find_kth_min.cpp}
 
 \subsection{Lazy Aritmetic Sum}
 \cppfile{data_structures/segment_tree_recursive/Lazy_Aritmetic_Sum.cpp}
 
 \subsection{Lazy Extreme}
-\cppfile{data_structures/segment_tree_recursive/lazy_extreme.cpp}
+\cppfile{data_structures/segment_tree_recursive/Lazy_Extreme.cpp}
 
 \subsection{Merge Sort Tree}
-\cppfile{data_structures/segment_tree_recursive/merge_sort_tree.cpp}
+\cppfile{data_structures/segment_tree_recursive/Merge_Sort_Tree.cpp}
 
 \subsection{Persistent}
 \cppfile{data_structures/segment_tree_recursive/persistent.cpp}
@@ -195,16 +222,16 @@
 \section{Dp}
 
 \subsection{Cht Dynamic}
-\cppfile{dp/cht_dynamic.cpp}
+\cppfile{dp/CHT_Dynamic.cpp}
 
 \subsection{Cht Li Chao Tree}
-\cppfile{dp/cht_li_chao_tree.cpp}
+\cppfile{dp/CHT_Li_Chao_Tree.cpp}
 
 \subsection{Chull Trick}
-\cppfile{dp/chull_trick.cpp}
+\cppfile{dp/CHull_Trick.cpp}
 
 \subsection{Count Cycles}
-\cppfile{dp/count_cycles.cpp}
+\cppfile{dp/Count_Cycles.cpp}
 
 \subsection{Divide And Conquer Dp Opt}
 \cppfile{dp/divide_and_conquer_dp_opt.cpp}
@@ -218,17 +245,20 @@
 \subsection{Knapsack Big W}
 \cppfile{dp/knapsack_big_w.cpp}
 
+\subsection{Knapsack Weighted}
+\cppfile{dp/Knapsack_weighted.cpp}
+
 \subsection{Knuth Division Dp Opt}
 \cppfile{dp/knuth_division_dp_opt.cpp}
 
 \subsection{Lcs}
-\cppfile{dp/lcs.cpp}
+\cppfile{dp/LCS.cpp}
 
 \subsection{Lis}
-\cppfile{dp/lis.cpp}
+\cppfile{dp/LIS.cpp}
 
 \subsection{Merge Sort}
-\cppfile{dp/merge_sort.cpp}
+\cppfile{dp/merge_Sort.cpp}
 
 \newpage
 
@@ -246,7 +276,7 @@
 \cppfile{geometry/closest_points.cpp}
 
 \subsection{Closest Points Monogon}
-\cppfile{geometry/closest_points_monogon.cpp}
+\cppfile{geometry/closest_points_Monogon.cpp}
 
 \subsection{Complex}
 \cppfile{geometry/complex.cpp}
@@ -276,13 +306,13 @@
 \section{Grafos}
 
 \subsection{2Sat}
-\cppfile{grafos/2sat.cpp}
+\cppfile{grafos/2SAT.cpp}
 
 \subsection{Bellman Ford}
 \cppfile{grafos/bellman_ford.cpp}
 
 \subsection{Bfs}
-\cppfile{grafos/bfs.cpp}
+\cppfile{grafos/BFS.cpp}
 
 \subsection{Biconnected}
 \cppfile{grafos/biconnected.cpp}
@@ -297,10 +327,10 @@
 \cppfile{grafos/dijkstra.cpp}
 
 \subsection{Dominator Tree}
-\cppfile{grafos/dominator_tree.cpp}
+\cppfile{grafos/dominator_Tree.cpp}
 
 \subsection{Dynamic Connectivity}
-\cppfile{grafos/dynamic_connectivity.cpp}
+\cppfile{grafos/dynamic_Connectivity.cpp}
 
 \subsection{Eulerian Cycle}
 \cppfile{grafos/eulerian_cycle.cpp}
@@ -336,6 +366,9 @@
 
 \subsection{Floyd Warshall}
 \cppfile{grafos/floyd_warshall.cpp}
+
+\subsection{Fordfulkerson}
+\cppfile{grafos/FordFulkerson.cpp}
 
 \subsection{Kruskal}
 \cppfile{grafos/kruskal.cpp}
@@ -462,6 +495,18 @@
 
 \newpage
 
+%############### Python ###############
+
+\section{Python}
+
+\subsection{Numbs.Py}
+\pythonfile{Python/numbs.py}
+
+\subsection{Strings.Py}
+\pythonfile{Python/strings.py}
+
+\newpage
+
 %############### Strings ###############
 
 \section{Strings}
@@ -524,13 +569,13 @@
 \cppfile{testing/gen_tree2.cpp}
 
 \subsection{In}
-\cppfile{testing/in}
+\pythonfile{testing/in}
 
 \subsection{Readme.Md}
-\cppfile{testing/README.md}
+\pythonfile{testing/README.md}
 
 \subsection{Stress}
-\cppfile{testing/stress.sh}
+\pythonfile{testing/stress.sh}
 
 \newpage
 
@@ -551,7 +596,7 @@
 \cppfile{tree/diameter.cpp}
 
 \subsection{Dsu On Tree}
-\cppfile{tree/dsu_on_tree.cpp}
+\cppfile{tree/DSU_on_Tree.cpp}
 
 \subsection{Dynamic Connectivity}
 \cppfile{tree/dynamic_connectivity.cpp}
@@ -566,7 +611,7 @@
 \cppfile{tree/isomorphism_centroid.cpp}
 
 \subsection{Lca}
-\cppfile{tree/lca.cpp}
+\cppfile{tree/LCA.cpp}
 
 \subsection{Link Cut Tree}
 \cppfile{tree/link_cut_tree.cpp}
