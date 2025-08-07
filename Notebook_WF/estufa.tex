@@ -1,0 +1,490 @@
+%"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
+
+\documentclass[10pt,landscape,twocolumn,a4paper,notitlepage]{article}
+\usepackage{hyperref}
+\usepackage[english, activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{makeidx}
+
+%%% Margenes
+\setlength{\columnsep}{0.25in}    % default=10pt
+\setlength{\columnseprule}{0.5pt}    % default=0pt (no line)
+
+\addtolength{\textheight}{2.35in}
+\addtolength{\topmargin}{-0.9in}     % ~ -0.5 del incremento anterior
+
+\addtolength{\textwidth}{1.1in}
+\addtolength{\oddsidemargin}{-0.55in} % -0.5 del incremento anterior
+
+\setlength{\headsep}{0.08in}
+\setlength{\parskip}{0in}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0mm}
+
+%%% Encabezado y pie de pagina
+\pagestyle{fancy}
+\fancyhead[LO]{\textbf{\title}}
+\fancyhead[C]{\leftmark\ -\ \rightmark}
+\fancyhead[RO]{Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+\definecolor{darkblue}{rgb}{0,0,0.4}
+%%% Configuracion de Listings
+\lstloadlanguages{C++,Python}
+\lstnewenvironment{code}
+	{%\lstset{	numbers=none, frame=lines, basicstyle=\small\ttfamily, }%
+	 \csname lst@SetFirstLabel\endcsname}
+	{\csname lst@SaveFirstLabel\endcsname}
+\lstset{% general command to set parameter(s)
+	language=C++, basicstyle=\small\ttfamily, keywordstyle=\slshape,
+	emph=[1]{tipo,usa}, emphstyle={[1]\sffamily\bfseries},
+	morekeywords={tint,forn,forsn,fore},
+	basewidth={0.47em,0.40em},
+	columns=fixed, fontadjust, resetmargins, xrightmargin=5pt, xleftmargin=15pt,
+	flexiblecolumns=false, tabsize=2, breaklines,	breakatwhitespace=false, extendedchars=true,
+	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=9pt,
+	frame=l, framesep=3pt,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{darkblue}\ttfamily,
+    stringstyle=\color{magenta}\ttfamily,
+    commentstyle=\color{RedOrange}\ttfamily,
+    morecomment=[l][\color{OliveGreen}]{\#}
+}
+
+\lstdefinestyle{C++}{
+	language=C++, basicstyle=\small\ttfamily, keywordstyle=\slshape,
+	emph=[1]{tipo,usa,tipo2}, emphstyle={[1]\sffamily\bfseries},
+	morekeywords={MOD,forn,forsn,forr},
+	basewidth={0.47em,0.40em},
+	columns=fixed, fontadjust, resetmargins, xrightmargin=5pt, xleftmargin=15pt,
+	flexiblecolumns=false, tabsize=2, breaklines,	breakatwhitespace=false, extendedchars=true,
+	numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=9pt,
+	frame=l, framesep=3pt,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{darkblue}\ttfamily,
+    stringstyle=\color{magenta}\ttfamily,
+    commentstyle=\color{RedOrange}\ttfamily,
+    morecomment=[l][\color{OliveGreen}]{\#}
+}
+
+\lstdefinestyle{python}{
+    language=Python,                  % Establecer el lenguaje a Python
+    % basicstyle=\small\ttfamily,        % Estilo básico: tamaño pequeño y tipo de letra monoespaciada
+    % keywordstyle=\color{blue}\bfseries, % Palabras clave en azul y negrita
+    % stringstyle=\color{magenta},       % Cadenas de texto en color magenta
+    % commentstyle=\color{green},        % Comentarios en color verde
+    % morecomment=[l][\color{OliveGreen}]{\#}, % Comentarios que comienzan con '#'
+    % numbers=left,                      % Numeración de líneas a la izquierda
+    % numberstyle=\tiny\color{gray},     % Estilo de número de línea pequeño y gris
+    % stepnumber=1,                      % Numerar todas las líneas
+    % numbersep=5pt,                     % Separación entre los números y el código
+    % backgroundcolor=\color{white},     % Fondo blanco para el código
+    % frame=single,                      % Marco alrededor del código
+    % framesep=10pt,                     % Separación entre el código y el marco
+    % breaklines=true,                   % Ajuste automático de las líneas largas
+    % breakatwhitespace=true,            % Romper las líneas en los espacios
+    % showstringspaces=false,            % No mostrar los espacios en las cadenas
+    % tabsize=4,                          % Definir el tamaño de las tabulaciones
+    % captionpos=b,                      % Posicionar la leyenda (caption) abajo
+    % xleftmargin=20pt,                  % Margen izquierdo para el código
+    % xrightmargin=20pt,                 % Margen derecho para el código
+    % language=Python,                   % Establecer el lenguaje como Python
+}
+
+%%% Macros
+\def\nbtitle#1{\begin{Large}\begin{center}\textbf{#1}\end{center}\end{Large}}
+\def\nbsection#1{\section{#1}}
+\def\nbsubsection#1{\subsection{#1}}
+\def\nbcoment#1{\begin{small}\textbf{#1}\end{small}}
+\newcommand{\comb}[2]{\left( \begin{array}{c} #1 \\ #2 \end{array}\right)}
+\def\complexity#1{\texorpdfstring{$\mathcal{O}(#1)$}{O(#1)}}
+\newcommand\cppfile[2][]{
+\lstinputlisting[language=C++,linerange={#1}]{#2}
+}
+\newcommand\pythonfile[2][]{
+\lstinputlisting[language=Python,linerange={#1}]{#2}
+}
+\newcommand\bashfile[2][]{
+\lstinputlisting[language=bash,linerange={#1}]{#2}
+}
+
+
+%\input{preamble.tex}
+\begin{document}
+\def\title{Universidad Nacional de La Plata}
+%.\\[0.2cm]
+\centering{\LARGE\textbf{NaN (Need a Name)}} \\[0.5cm]
+\centering{\includegraphics[width=5.5cm]{NaN.png}}
+\tableofcontents\newpage
+
+
+%############### General ###############
+
+\section{General}
+
+\subsection{Plantilla}
+\cppfile{general/plantilla.cpp}
+
+\subsection{Compilar}
+\pythonfile{general/compilar.sh}
+
+\newpage
+
+%############### Build ###############
+
+\section{Build}
+
+\subsection{Estufa.Aux}
+\pythonfile{build/estufa.aux}
+
+\subsection{Estufa.Fdb Latexmk}
+\pythonfile{build/estufa.fdb_latexmk}
+
+\subsection{Estufa.Fls}
+\pythonfile{build/estufa.fls}
+
+\subsection{Estufa.Log}
+\pythonfile{build/estufa.log}
+
+\subsection{Estufa.Out}
+\pythonfile{build/estufa.out}
+
+\subsection{Estufa.Pdf}
+\pythonfile{build/estufa.pdf}
+
+\subsection{Estufa.Synctex.Gz}
+\pythonfile{build/estufa.synctex.gz}
+
+\subsection{Estufa.Toc}
+\pythonfile{build/estufa.toc}
+
+\newpage
+
+%############### Data Structures ###############
+
+\section{Data Structures}
+
+\subsection{Compresion De Coordenadas}
+\cppfile{data_structures/compresion_de_coordenadas.cpp}
+
+\subsection{Dsu}
+\cppfile{data_structures/dsu.cpp}
+
+\subsection{Implicit Treap}
+\cppfile{data_structures/implicit_treap.cpp}
+
+\subsection{Indexed Set}
+\cppfile{data_structures/indexed_set.cpp}
+
+\subsection{Lazy-Propagation}
+\cppfile{data_structures/lazy-propagation.cpp}
+
+\subsection{Mo Dquery}
+\cppfile{data_structures/Mo_DQuery.cpp}
+
+\subsection{Persistent}
+\cppfile{data_structures/persistent.cpp}
+
+\subsection{Segtree-Iterative}
+\cppfile{data_structures/segtree-iterative.cpp}
+
+\newpage
+
+%############### Dp ###############
+
+\section{Dp}
+
+\subsection{Cht Dynamic}
+\cppfile{dp/CHT_Dynamic.cpp}
+
+\subsection{Divide And Conquer Dp Opt}
+\cppfile{dp/divide_and_conquer_dp_opt.cpp}
+
+\subsection{Knapsack Weighted}
+\cppfile{dp/Knapsack_weighted.cpp}
+
+\subsection{Knuth Division Dp Opt}
+\cppfile{dp/knuth_division_dp_opt.cpp}
+
+\subsection{Lis}
+\cppfile{dp/LIS.cpp}
+
+\newpage
+
+%############### Geometry ###############
+
+\section{Geometry}
+
+\subsection{Angular Sort}
+\cppfile{geometry/angular_sort.cpp}
+
+\subsection{Calipers}
+\cppfile{geometry/calipers.cpp}
+
+\subsection{Closest Points Monogon}
+\cppfile{geometry/closest_points_Monogon.cpp}
+
+\subsection{Complex}
+\cppfile{geometry/complex.cpp}
+
+\subsection{Convex Hull}
+\cppfile{geometry/convex_hull.cpp}
+
+\subsection{Formulas}
+\cppfile{geometry/formulas.cpp}
+
+\subsection{Intersection All}
+\cppfile{geometry/intersection_all.cpp}
+
+\subsection{Point In Poly}
+\cppfile{geometry/point_in_poly.cpp}
+
+\subsection{Template Punto}
+\cppfile{geometry/template_punto.cpp}
+
+\newpage
+
+%############### Grafos ###############
+
+\section{Grafos}
+
+\subsection{2Sat}
+\cppfile{grafos/2SAT.cpp}
+
+\subsection{Bellman Ford}
+\cppfile{grafos/bellman_ford.cpp}
+
+\subsection{Biconnected}
+\cppfile{grafos/biconnected.cpp}
+
+\subsection{Componentes Fuertemente Conexas}
+\cppfile{grafos/componentes_fuertemente_conexas.cpp}
+
+\subsection{Dynamic Connectivity}
+\cppfile{grafos/dynamic_Connectivity.cpp}
+
+\subsection{Eulerian Cycle}
+\cppfile{grafos/eulerian_cycle.cpp}
+
+\subsection{Blossom}
+\cppfile{grafos/flow/blossom.cpp}
+
+\subsection{Dinic}
+\cppfile{grafos/flow/dinic.cpp}
+
+\subsection{Hungarian}
+\cppfile{grafos/flow/hungarian.cpp}
+
+\subsection{Max Flow Min Cost Multiedge}
+\cppfile{grafos/flow/max_flow_min_cost_multiedge.cpp}
+
+\subsection{Min Cost Flow}
+\cppfile{grafos/flow/min_cost_flow.cpp}
+
+\newpage
+
+\subsection{Floyd Warshall}
+\cppfile{grafos/floyd_warshall.cpp}
+
+\subsection{Fordfulkerson}
+\cppfile{grafos/FordFulkerson.cpp}
+
+\subsection{Toposort}
+\cppfile{grafos/toposort.cpp}
+
+\newpage
+
+%############### Math ###############
+
+\section{Math}
+
+\subsection{Bell}
+\cppfile{math/bell.cpp}
+
+\subsection{Berlekamp Massey}
+\cppfile{math/berlekamp_massey.cpp}
+
+\subsection{Catalan}
+\cppfile{math/catalan.cpp}
+
+\subsection{Coeficientes Binomiales}
+\cppfile{math/coeficientes_binomiales.cpp}
+
+\subsection{Fft Mod}
+\cppfile{math/fft_mod.cpp}
+
+\subsection{Fht}
+\cppfile{math/fht.cpp}
+
+\subsection{Gauss Sistema Ecuaciones}
+\cppfile{math/gauss_sistema_ecuaciones.cpp}
+
+\subsection{Inverse Matrix}
+\cppfile{math/inverse_matrix.cpp}
+
+\subsection{Lagrange}
+\cppfile{math/lagrange.cpp}
+
+\subsection{Linear Rec}
+\cppfile{math/linear_rec.cpp}
+
+\subsection{Matrix Fast Pow}
+\cppfile{math/matrix_fast_pow.cpp}
+
+\subsection{Matrix Reduce}
+\cppfile{math/matrix_reduce.cpp}
+
+\subsection{Polynomial}
+\cppfile{math/polynomial.cpp}
+
+\subsection{Print Int128}
+\cppfile{math/print_int128.cpp}
+
+\subsection{Random}
+\cppfile{math/random.cpp}
+
+\subsection{Simplex}
+\cppfile{math/simplex.cpp}
+
+\subsection{Simpson}
+\cppfile{math/simpson.cpp}
+
+\newpage
+
+%############### Number Theory ###############
+
+\section{Number Theory}
+
+\subsection{Binexp Invmod}
+\cppfile{number_theory/binexp_invmod.cpp}
+
+\subsection{Criba Phi Euler}
+\cppfile{number_theory/criba_phi_euler.cpp}
+
+\subsection{Criba Primos}
+\cppfile{number_theory/criba_primos.cpp}
+
+\subsection{Discrete Log}
+\cppfile{number_theory/discrete_log.cpp}
+
+\subsection{Discrete Root}
+\cppfile{number_theory/discrete_root.cpp}
+
+\subsection{Divisors}
+\cppfile{number_theory/divisors.cpp}
+
+\subsection{Fast Factorization Mrabin Prho}
+\cppfile{number_theory/fast_factorization_mrabin_prho.cpp}
+
+\subsection{Teo Chino Resto}
+\cppfile{number_theory/teo_chino_resto.cpp}
+
+\newpage
+
+%############### Python ###############
+
+\section{Python}
+
+\subsection{Numbs.Py}
+\pythonfile{Python/numbs.py}
+
+\subsection{Strings.Py}
+\pythonfile{Python/strings.py}
+
+\newpage
+
+%############### Strings ###############
+
+\section{Strings}
+
+\subsection{Aho Corasick}
+\cppfile{strings/aho_corasick.cpp}
+
+\subsection{Hashing}
+\cppfile{strings/hashing.cpp}
+
+\subsection{Manacher}
+\cppfile{strings/manacher.cpp}
+
+\subsection{Prefix Function}
+\cppfile{strings/prefix_function.cpp}
+
+\subsection{Suffix Array}
+\cppfile{strings/suffix_array.cpp}
+
+\subsection{Suffix Automaton}
+\cppfile{strings/suffix_automaton.cpp}
+
+\subsection{Trie}
+\cppfile{strings/trie.cpp}
+
+\subsection{Z Function}
+\cppfile{strings/z_function.cpp}
+
+\newpage
+
+%############### Testing ###############
+
+\section{Testing}
+
+\subsection{A}
+\cppfile{testing/a.cpp}
+
+\subsection{Brute}
+\cppfile{testing/brute.cpp}
+
+\subsection{Gen}
+\cppfile{testing/gen.cpp}
+
+\subsection{Gen Tree}
+\cppfile{testing/gen_tree.cpp}
+
+\subsection{Gen Tree2}
+\cppfile{testing/gen_tree2.cpp}
+
+\subsection{In}
+\pythonfile{testing/in}
+
+\subsection{Readme.Md}
+\pythonfile{testing/README.md}
+
+\subsection{Stress}
+\pythonfile{testing/stress.sh}
+
+\newpage
+
+%############### Tree ###############
+
+\section{Tree}
+
+\subsection{Centroid Cses}
+\cppfile{tree/centroid_cses.cpp}
+
+\subsection{Dynamic Connectivity}
+\cppfile{tree/dynamic_connectivity.cpp}
+
+\subsection{Hld}
+\cppfile{tree/hld.cpp}
+
+\subsection{Isomorphism Centroid}
+\cppfile{tree/isomorphism_centroid.cpp}
+
+\subsection{Lca}
+\cppfile{tree/LCA.cpp}
+
+\subsection{Link Cut Tree}
+\cppfile{tree/link_cut_tree.cpp}
+
+\subsection{Sm To Large}
+\cppfile{tree/sm_to_large.cpp}
+
+\newpage
+\end{document}
