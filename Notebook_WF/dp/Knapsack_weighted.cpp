@@ -1,11 +1,5 @@
-// If we know that sum of all elements is X, then we can find
-// all possible subset sums of a set g in O(x * sqrt(x)). This is 
-// because there cannot be more than sqrt(x) distinct elements.
-
 vector<bool> knapsack_weighted(vector <int> v, int n) {
-	
-	int sum = accumulate(all(v),0LL); // 0LL is unnecesary this time,
-	// but avoids overflow when sum is greater than 2^31
+	int sum = accumulate(all(v),0LL);
 	vector <bool> dp(sum+1,false);
 	dp[0] = true;
 	sort(all(v));

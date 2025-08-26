@@ -1,6 +1,6 @@
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 
-\documentclass[10pt,landscape,twocolumn,a4paper,notitlepage]{article}
+\documentclass[9pt,portrait,twocolumn,a4paper,notitlepage]{article}
 \usepackage{hyperref}
 \usepackage[english, activeacute]{babel}
 \usepackage[utf8]{inputenc}
@@ -13,20 +13,21 @@
 \usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{makeidx}
+\usepackage{etoolbox}
 
 %%% Margenes
-\setlength{\columnsep}{0.25in}    % default=10pt
+\setlength{\columnsep}{0.2in}    % Reducir separación entre columnas
 \setlength{\columnseprule}{0.5pt}    % default=0pt (no line)
 
-\addtolength{\textheight}{2.35in}
-\addtolength{\topmargin}{-0.9in}     % ~ -0.5 del incremento anterior
+\addtolength{\textheight}{2.5in}  % Aumentar más la altura del texto
+\addtolength{\topmargin}{-1.2in}  % Reducir más el margen superior
 
-\addtolength{\textwidth}{1.1in}
-\addtolength{\oddsidemargin}{-0.55in} % -0.5 del incremento anterior
+\addtolength{\textwidth}{1.2in}   % Aumentar más el ancho del texto
+\addtolength{\oddsidemargin}{-0.6in} % Reducir más el margen izquierdo
 
-\setlength{\headsep}{0.08in}
+\setlength{\headsep}{0.05in}      % Reducir espacio entre header y texto
 \setlength{\parskip}{0in}
-\setlength{\headheight}{15pt}
+\setlength{\headheight}{12pt}     % Reducir altura del header
 \setlength{\parindent}{0mm}
 
 %%% Encabezado y pie de pagina
@@ -106,14 +107,14 @@
 \def\nbcoment#1{\begin{small}\textbf{#1}\end{small}}
 \newcommand{\comb}[2]{\left( \begin{array}{c} #1 \\ #2 \end{array}\right)}
 \def\complexity#1{\texorpdfstring{$\mathcal{O}(#1)$}{O(#1)}}
-\newcommand\cppfile[2][]{
-\lstinputlisting[language=C++,linerange={#1}]{#2}
+\newcommand\cppfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=C++]{#2}}{\lstinputlisting[language=C++,linerange={#1}]{#2}}%
 }
-\newcommand\pythonfile[2][]{
-\lstinputlisting[language=Python,linerange={#1}]{#2}
+\newcommand\pythonfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=Python]{#2}}{\lstinputlisting[language=Python,linerange={#1}]{#2}}%
 }
-\newcommand\bashfile[2][]{
-\lstinputlisting[language=bash,linerange={#1}]{#2}
+\newcommand\bashfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=bash]{#2}}{\lstinputlisting[language=bash,linerange={#1}]{#2}}%
 }
 
 
@@ -124,4 +125,3 @@
 \centering{\LARGE\textbf{NaN (Need a Name)}} \\[0.5cm]
 \centering{\includegraphics[width=5.5cm]{NaN.png}}
 \tableofcontents\newpage
-

@@ -7,10 +7,13 @@ cp 'gen_utils/header.tex' 'estufa.tex'
 echo "- Agregando los problemas"
 python 'gen_utils/add_files.py'
 
+echo "- Limpiando archivos auxiliares"
+latexmk -c
+
 echo "- Compilando el tex con pdflatex"
 latexmk -interaction=nonstopmode -pdf estufa.tex
 
-#latexmk -c &> /dev/null
+latexmk -c &> /dev/null
 # Limpio los archivos basura que quedan y dejo solo pdf y tex
 
 echo "Notebook creado 🔥🔥"

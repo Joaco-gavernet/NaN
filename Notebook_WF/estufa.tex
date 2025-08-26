@@ -1,6 +1,6 @@
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 
-\documentclass[10pt,landscape,twocolumn,a4paper,notitlepage]{article}
+\documentclass[10pt,portrait,twocolumn,a4paper,notitlepage]{article}
 \usepackage{hyperref}
 \usepackage[english, activeacute]{babel}
 \usepackage[utf8]{inputenc}
@@ -13,20 +13,21 @@
 \usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{makeidx}
+\usepackage{etoolbox}
 
 %%% Margenes
-\setlength{\columnsep}{0.25in}    % default=10pt
+\setlength{\columnsep}{0.2in}    % Reducir separación entre columnas
 \setlength{\columnseprule}{0.5pt}    % default=0pt (no line)
 
-\addtolength{\textheight}{2.35in}
-\addtolength{\topmargin}{-0.9in}     % ~ -0.5 del incremento anterior
+\addtolength{\textheight}{2.5in}  % Aumentar más la altura del texto
+\addtolength{\topmargin}{-1.2in}  % Reducir más el margen superior
 
-\addtolength{\textwidth}{1.1in}
-\addtolength{\oddsidemargin}{-0.55in} % -0.5 del incremento anterior
+\addtolength{\textwidth}{1.2in}   % Aumentar más el ancho del texto
+\addtolength{\oddsidemargin}{-0.6in} % Reducir más el margen izquierdo
 
-\setlength{\headsep}{0.08in}
+\setlength{\headsep}{0.05in}      % Reducir espacio entre header y texto
 \setlength{\parskip}{0in}
-\setlength{\headheight}{15pt}
+\setlength{\headheight}{12pt}     % Reducir altura del header
 \setlength{\parindent}{0mm}
 
 %%% Encabezado y pie de pagina
@@ -106,14 +107,14 @@
 \def\nbcoment#1{\begin{small}\textbf{#1}\end{small}}
 \newcommand{\comb}[2]{\left( \begin{array}{c} #1 \\ #2 \end{array}\right)}
 \def\complexity#1{\texorpdfstring{$\mathcal{O}(#1)$}{O(#1)}}
-\newcommand\cppfile[2][]{
-\lstinputlisting[language=C++,linerange={#1}]{#2}
+\newcommand\cppfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=C++]{#2}}{\lstinputlisting[language=C++,linerange={#1}]{#2}}%
 }
-\newcommand\pythonfile[2][]{
-\lstinputlisting[language=Python,linerange={#1}]{#2}
+\newcommand\pythonfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=Python]{#2}}{\lstinputlisting[language=Python,linerange={#1}]{#2}}%
 }
-\newcommand\bashfile[2][]{
-\lstinputlisting[language=bash,linerange={#1}]{#2}
+\newcommand\bashfile[2][]{%
+\ifstrempty{#1}{\lstinputlisting[language=bash]{#2}}{\lstinputlisting[language=bash,linerange={#1}]{#2}}%
 }
 
 
@@ -125,10 +126,9 @@
 \centering{\includegraphics[width=5.5cm]{NaN.png}}
 \tableofcontents\newpage
 
-
 %############### General ###############
 
-\section{General}
+\section{G}
 
 \subsection{Plantilla}
 \cppfile{general/plantilla.cpp}
@@ -136,355 +136,283 @@
 \subsection{Compilar}
 \pythonfile{general/compilar.sh}
 
-\newpage
-
-%############### Build ###############
-
-\section{Build}
-
-\subsection{Estufa.Aux}
-\pythonfile{build/estufa.aux}
-
-\subsection{Estufa.Fdb Latexmk}
-\pythonfile{build/estufa.fdb_latexmk}
-
-\subsection{Estufa.Fls}
-\pythonfile{build/estufa.fls}
-
-\subsection{Estufa.Log}
-\pythonfile{build/estufa.log}
-
-\subsection{Estufa.Out}
-\pythonfile{build/estufa.out}
-
-\subsection{Estufa.Pdf}
-\pythonfile{build/estufa.pdf}
-
-\subsection{Estufa.Synctex.Gz}
-\pythonfile{build/estufa.synctex.gz}
-
-\subsection{Estufa.Toc}
-\pythonfile{build/estufa.toc}
-
-\newpage
-
-%############### Data Structures ###############
+%############### Data Structures Clean ###############
 
 \section{Data Structures}
 
 \subsection{Compresion De Coordenadas}
-\cppfile{data_structures/compresion_de_coordenadas.cpp}
+\cppfile{data_structures_clean/compresion_de_coordenadas.cpp}
 
 \subsection{Dsu}
-\cppfile{data_structures/dsu.cpp}
+\cppfile{data_structures_clean/dsu.cpp}
 
 \subsection{Implicit Treap}
-\cppfile{data_structures/implicit_treap.cpp}
+\cppfile{data_structures_clean/implicit_treap.cpp}
 
 \subsection{Indexed Set}
-\cppfile{data_structures/indexed_set.cpp}
+\cppfile{data_structures_clean/indexed_set.cpp}
 
 \subsection{Lazy-Propagation}
-\cppfile{data_structures/lazy-propagation.cpp}
+\cppfile{data_structures_clean/lazy-propagation.cpp}
 
 \subsection{Mo Dquery}
-\cppfile{data_structures/Mo_DQuery.cpp}
+\cppfile{data_structures_clean/Mo_DQuery.cpp}
 
 \subsection{Persistent}
-\cppfile{data_structures/persistent.cpp}
+\cppfile{data_structures_clean/persistent.cpp}
 
 \subsection{Segtree-Iterative}
-\cppfile{data_structures/segtree-iterative.cpp}
+\cppfile{data_structures_clean/segtree-iterative.cpp}
 
-\newpage
-
-%############### Dp ###############
+%############### Dp Clean ###############
 
 \section{Dp}
 
 \subsection{Cht Dynamic}
-\cppfile{dp/CHT_Dynamic.cpp}
+\cppfile{dp_clean/CHT_Dynamic.cpp}
 
 \subsection{Divide And Conquer Dp Opt}
-\cppfile{dp/divide_and_conquer_dp_opt.cpp}
+\cppfile{dp_clean/divide_and_conquer_dp_opt.cpp}
 
 \subsection{Knapsack Weighted}
-\cppfile{dp/Knapsack_weighted.cpp}
+\cppfile{dp_clean/Knapsack_weighted.cpp}
 
 \subsection{Knuth Division Dp Opt}
-\cppfile{dp/knuth_division_dp_opt.cpp}
+\cppfile{dp_clean/knuth_division_dp_opt.cpp}
 
 \subsection{Lis}
-\cppfile{dp/LIS.cpp}
+\cppfile{dp_clean/LIS.cpp}
 
-\newpage
+%############### General Clean ###############
 
-%############### Geometry ###############
+\section{General}
+
+\subsection{Plantilla}
+\cppfile{general_clean/plantilla.cpp}
+
+\subsection{Compilar}
+\pythonfile{general_clean/compilar.sh}
+
+%############### Geometry Clean ###############
 
 \section{Geometry}
 
 \subsection{Angular Sort}
-\cppfile{geometry/angular_sort.cpp}
+\cppfile{geometry_clean/angular_sort.cpp}
 
 \subsection{Calipers}
-\cppfile{geometry/calipers.cpp}
+\cppfile{geometry_clean/calipers.cpp}
 
 \subsection{Closest Points Monogon}
-\cppfile{geometry/closest_points_Monogon.cpp}
+\cppfile{geometry_clean/closest_points_Monogon.cpp}
 
 \subsection{Complex}
-\cppfile{geometry/complex.cpp}
+\cppfile{geometry_clean/complex.cpp}
 
 \subsection{Convex Hull}
-\cppfile{geometry/convex_hull.cpp}
+\cppfile{geometry_clean/convex_hull.cpp}
 
 \subsection{Formulas}
-\cppfile{geometry/formulas.cpp}
+\cppfile{geometry_clean/formulas.cpp}
 
 \subsection{Intersection All}
-\cppfile{geometry/intersection_all.cpp}
+\cppfile{geometry_clean/intersection_all.cpp}
 
 \subsection{Point In Poly}
-\cppfile{geometry/point_in_poly.cpp}
+\cppfile{geometry_clean/point_in_poly.cpp}
 
 \subsection{Template Punto}
-\cppfile{geometry/template_punto.cpp}
+\cppfile{geometry_clean/template_punto.cpp}
 
-\newpage
-
-%############### Grafos ###############
+%############### Grafos Clean ###############
 
 \section{Grafos}
 
 \subsection{2Sat}
-\cppfile{grafos/2SAT.cpp}
+\cppfile{grafos_clean/2SAT.cpp}
 
 \subsection{Bellman Ford}
-\cppfile{grafos/bellman_ford.cpp}
+\cppfile{grafos_clean/bellman_ford.cpp}
 
 \subsection{Biconnected}
-\cppfile{grafos/biconnected.cpp}
-
-\subsection{Componentes Fuertemente Conexas}
-\cppfile{grafos/componentes_fuertemente_conexas.cpp}
-
-\subsection{Dynamic Connectivity}
-\cppfile{grafos/dynamic_Connectivity.cpp}
-
-\subsection{Eulerian Cycle}
-\cppfile{grafos/eulerian_cycle.cpp}
+\cppfile{grafos_clean/biconnected.cpp}
 
 \subsection{Blossom}
-\cppfile{grafos/flow/blossom.cpp}
+\cppfile{grafos_clean/blossom.cpp}
+
+\subsection{Componentes Fuertemente Conexas}
+\cppfile{grafos_clean/componentes_fuertemente_conexas.cpp}
 
 \subsection{Dinic}
-\cppfile{grafos/flow/dinic.cpp}
+\cppfile{grafos_clean/dinic.cpp}
 
-\subsection{Hungarian}
-\cppfile{grafos/flow/hungarian.cpp}
+\subsection{Dynamic Connectivity}
+\cppfile{grafos_clean/dynamic_Connectivity.cpp}
 
-\subsection{Max Flow Min Cost Multiedge}
-\cppfile{grafos/flow/max_flow_min_cost_multiedge.cpp}
-
-\subsection{Min Cost Flow}
-\cppfile{grafos/flow/min_cost_flow.cpp}
-
-\newpage
+\subsection{Eulerian Cycle}
+\cppfile{grafos_clean/eulerian_cycle.cpp}
 
 \subsection{Floyd Warshall}
-\cppfile{grafos/floyd_warshall.cpp}
+\cppfile{grafos_clean/floyd_warshall.cpp}
 
 \subsection{Fordfulkerson}
-\cppfile{grafos/FordFulkerson.cpp}
+\cppfile{grafos_clean/FordFulkerson.cpp}
+
+\subsection{Hungarian}
+\cppfile{grafos_clean/hungarian.cpp}
+
+\subsection{Max Flow Min Cost Multiedge}
+\cppfile{grafos_clean/max_flow_min_cost_multiedge.cpp}
+
+\subsection{Min Cost Flow}
+\cppfile{grafos_clean/min_cost_flow.cpp}
 
 \subsection{Toposort}
-\cppfile{grafos/toposort.cpp}
+\cppfile{grafos_clean/toposort.cpp}
 
-\newpage
-
-%############### Math ###############
+%############### Math Clean ###############
 
 \section{Math}
 
 \subsection{Bell}
-\cppfile{math/bell.cpp}
+\cppfile{math_clean/bell.cpp}
 
 \subsection{Berlekamp Massey}
-\cppfile{math/berlekamp_massey.cpp}
+\cppfile{math_clean/berlekamp_massey.cpp}
 
 \subsection{Catalan}
-\cppfile{math/catalan.cpp}
+\cppfile{math_clean/catalan.cpp}
 
 \subsection{Coeficientes Binomiales}
-\cppfile{math/coeficientes_binomiales.cpp}
+\cppfile{math_clean/coeficientes_binomiales.cpp}
 
 \subsection{Fft Mod}
-\cppfile{math/fft_mod.cpp}
+\cppfile{math_clean/fft_mod.cpp}
 
 \subsection{Fht}
-\cppfile{math/fht.cpp}
+\cppfile{math_clean/fht.cpp}
 
 \subsection{Gauss Sistema Ecuaciones}
-\cppfile{math/gauss_sistema_ecuaciones.cpp}
+\cppfile{math_clean/gauss_sistema_ecuaciones.cpp}
 
 \subsection{Inverse Matrix}
-\cppfile{math/inverse_matrix.cpp}
+\cppfile{math_clean/inverse_matrix.cpp}
 
 \subsection{Lagrange}
-\cppfile{math/lagrange.cpp}
+\cppfile{math_clean/lagrange.cpp}
 
 \subsection{Linear Rec}
-\cppfile{math/linear_rec.cpp}
+\cppfile{math_clean/linear_rec.cpp}
 
 \subsection{Matrix Fast Pow}
-\cppfile{math/matrix_fast_pow.cpp}
+\cppfile{math_clean/matrix_fast_pow.cpp}
 
 \subsection{Matrix Reduce}
-\cppfile{math/matrix_reduce.cpp}
+\cppfile{math_clean/matrix_reduce.cpp}
 
 \subsection{Polynomial}
-\cppfile{math/polynomial.cpp}
+\cppfile{math_clean/polynomial.cpp}
 
 \subsection{Print Int128}
-\cppfile{math/print_int128.cpp}
+\cppfile{math_clean/print_int128.cpp}
 
 \subsection{Random}
-\cppfile{math/random.cpp}
+\cppfile{math_clean/random.cpp}
 
 \subsection{Simplex}
-\cppfile{math/simplex.cpp}
+\cppfile{math_clean/simplex.cpp}
 
 \subsection{Simpson}
-\cppfile{math/simpson.cpp}
+\cppfile{math_clean/simpson.cpp}
 
-\newpage
-
-%############### Number Theory ###############
+%############### Number Theory Clean ###############
 
 \section{Number Theory}
 
 \subsection{Binexp Invmod}
-\cppfile{number_theory/binexp_invmod.cpp}
+\cppfile{number_theory_clean/binexp_invmod.cpp}
 
 \subsection{Criba Phi Euler}
-\cppfile{number_theory/criba_phi_euler.cpp}
+\cppfile{number_theory_clean/criba_phi_euler.cpp}
 
 \subsection{Criba Primos}
-\cppfile{number_theory/criba_primos.cpp}
+\cppfile{number_theory_clean/criba_primos.cpp}
 
 \subsection{Discrete Log}
-\cppfile{number_theory/discrete_log.cpp}
+\cppfile{number_theory_clean/discrete_log.cpp}
 
 \subsection{Discrete Root}
-\cppfile{number_theory/discrete_root.cpp}
+\cppfile{number_theory_clean/discrete_root.cpp}
 
 \subsection{Divisors}
-\cppfile{number_theory/divisors.cpp}
+\cppfile{number_theory_clean/divisors.cpp}
 
 \subsection{Fast Factorization Mrabin Prho}
-\cppfile{number_theory/fast_factorization_mrabin_prho.cpp}
+\cppfile{number_theory_clean/fast_factorization_mrabin_prho.cpp}
 
 \subsection{Teo Chino Resto}
-\cppfile{number_theory/teo_chino_resto.cpp}
+\cppfile{number_theory_clean/teo_chino_resto.cpp}
 
-\newpage
-
-%############### Python ###############
+%############### Python Clean ###############
 
 \section{Python}
 
 \subsection{Numbs.Py}
-\pythonfile{Python/numbs.py}
+\pythonfile{Python_clean/numbs.py}
 
 \subsection{Strings.Py}
-\pythonfile{Python/strings.py}
+\pythonfile{Python_clean/strings.py}
 
-\newpage
-
-%############### Strings ###############
+%############### Strings Clean ###############
 
 \section{Strings}
 
 \subsection{Aho Corasick}
-\cppfile{strings/aho_corasick.cpp}
+\cppfile{strings_clean/aho_corasick.cpp}
 
 \subsection{Hashing}
-\cppfile{strings/hashing.cpp}
+\cppfile{strings_clean/hashing.cpp}
 
 \subsection{Manacher}
-\cppfile{strings/manacher.cpp}
+\cppfile{strings_clean/manacher.cpp}
 
 \subsection{Prefix Function}
-\cppfile{strings/prefix_function.cpp}
+\cppfile{strings_clean/prefix_function.cpp}
 
 \subsection{Suffix Array}
-\cppfile{strings/suffix_array.cpp}
+\cppfile{strings_clean/suffix_array.cpp}
 
 \subsection{Suffix Automaton}
-\cppfile{strings/suffix_automaton.cpp}
+\cppfile{strings_clean/suffix_automaton.cpp}
 
 \subsection{Trie}
-\cppfile{strings/trie.cpp}
+\cppfile{strings_clean/trie.cpp}
 
 \subsection{Z Function}
-\cppfile{strings/z_function.cpp}
+\cppfile{strings_clean/z_function.cpp}
 
-\newpage
-
-%############### Testing ###############
-
-\section{Testing}
-
-\subsection{A}
-\cppfile{testing/a.cpp}
-
-\subsection{Brute}
-\cppfile{testing/brute.cpp}
-
-\subsection{Gen}
-\cppfile{testing/gen.cpp}
-
-\subsection{Gen Tree}
-\cppfile{testing/gen_tree.cpp}
-
-\subsection{Gen Tree2}
-\cppfile{testing/gen_tree2.cpp}
-
-\subsection{In}
-\pythonfile{testing/in}
-
-\subsection{Readme.Md}
-\pythonfile{testing/README.md}
-
-\subsection{Stress}
-\pythonfile{testing/stress.sh}
-
-\newpage
-
-%############### Tree ###############
+%############### Tree Clean ###############
 
 \section{Tree}
 
 \subsection{Centroid Cses}
-\cppfile{tree/centroid_cses.cpp}
+\cppfile{tree_clean/centroid_cses.cpp}
 
 \subsection{Dynamic Connectivity}
-\cppfile{tree/dynamic_connectivity.cpp}
+\cppfile{tree_clean/dynamic_connectivity.cpp}
 
 \subsection{Hld}
-\cppfile{tree/hld.cpp}
+\cppfile{tree_clean/hld.cpp}
 
 \subsection{Isomorphism Centroid}
-\cppfile{tree/isomorphism_centroid.cpp}
+\cppfile{tree_clean/isomorphism_centroid.cpp}
 
 \subsection{Lca}
-\cppfile{tree/LCA.cpp}
+\cppfile{tree_clean/LCA.cpp}
 
 \subsection{Link Cut Tree}
-\cppfile{tree/link_cut_tree.cpp}
+\cppfile{tree_clean/link_cut_tree.cpp}
 
 \subsection{Sm To Large}
-\cppfile{tree/sm_to_large.cpp}
-
-\newpage
+\cppfile{tree_clean/sm_to_large.cpp}
 \end{document}
