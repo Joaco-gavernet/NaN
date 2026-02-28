@@ -1,0 +1,34 @@
+\documentclass[10pt,landscape,twocolumn]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+
+\pagestyle{empty} % Quita el número de página
+
+\begin{document}
+
+\section*{Cheatsheet: Bell \& Catalan}
+
+\subsection*{Números de Bell ($B_n$)}
+Particiones de un conjunto de $n$ elementos. $B_0=1$.
+
+\textbf{Recursiva:}
+$$ B_{n+1} = \sum_{k=0}^{n} \binom{n}{k} B_k $$
+
+\textbf{Dobiński:}
+$$ B_n = \frac{1}{e} \sum_{k=0}^{\infty} \frac{k^n}{k!} $$
+
+\rule{\linewidth}{0.2pt}
+
+\subsection*{Números de Catalan ($C_n$)}
+Paréntesis, triangulaciones, árboles binarios. $C_0=1$.
+
+\textbf{Explícita:}
+$$ C_n = \frac{1}{n+1} \binom{2n}{n} = \frac{(2n)!}{(n+1)!\,n!} $$
+
+\textbf{Alternativa:}
+$$ C_n = \binom{2n}{n} - \binom{2n}{n+1} $$
+
+\textbf{Recursiva:}
+$$ C_{n+1} = \sum_{i=0}^{n} C_i C_{n-i} $$
+
+\end{document}

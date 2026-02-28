@@ -23,7 +23,6 @@ ll inv(ll a, ll mod) { // inverso de a modulo mod
     ii sol = extendedEuclid(a,mod);
     return ((sol.first%mod)+mod)%mod;
 }
-#define mod(a,m) (((a)%m+m)%m)
 ii sol(tuple<ll,ll,ll> c){ //requires inv, diophantine
     auto [a, x1, m] = c; ll d = __gcd(a,m);
     if(d==1) return {mod(x1*inv(a,m),m), m};

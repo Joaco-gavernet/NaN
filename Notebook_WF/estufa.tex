@@ -1,6 +1,6 @@
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 
-\documentclass[10pt,portrait,twocolumn,a4paper,notitlepage]{article}
+\documentclass[9pt,portrait,twocolumn,a4paper,notitlepage]{article}
 \usepackage{hyperref}
 \usepackage[english, activeacute]{babel}
 \usepackage[utf8]{inputenc}
@@ -20,7 +20,7 @@
 \setlength{\columnseprule}{0.5pt}    % default=0pt (no line)
 
 \addtolength{\textheight}{2.5in}  % Aumentar más la altura del texto
-\addtolength{\topmargin}{-1.2in}  % Reducir más el margen superior
+\addtolength{\topmargin}{-1.0in}  % Reducir más el margen superior
 
 \addtolength{\textwidth}{1.2in}   % Aumentar más el ancho del texto
 \addtolength{\oddsidemargin}{-0.6in} % Reducir más el margen izquierdo
@@ -33,7 +33,7 @@
 %%% Encabezado y pie de pagina
 \pagestyle{fancy}
 \fancyhead[LO]{\textbf{\title}}
-\fancyhead[C]{\leftmark\ -\ \rightmark}
+%\fancyhead[C]{\leftmark\ -\ \rightmark}
 \fancyhead[RO]{Page \thepage\ of \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.4pt}
 \fancyfoot{}
@@ -120,11 +120,11 @@
 
 %\input{preamble.tex}
 \begin{document}
-\def\title{Universidad Nacional de La Plata}
+\def\title{Universidad Nacional de La Plata - NaN (Need a Name)}
 %.\\[0.2cm]
 \centering{\LARGE\textbf{NaN (Need a Name)}} \\[0.5cm]
-\centering{\includegraphics[width=5.5cm]{NaN.png}}
-\tableofcontents\newpage
+%\centering{\includegraphics[width=5.5cm]{NaN.png}}
+%\tableofcontents\newpage
 
 %############### General ###############
 
@@ -182,16 +182,6 @@
 
 \subsection{Lis}
 \cppfile{dp_clean/LIS.cpp}
-
-%############### General Clean ###############
-
-\section{General}
-
-\subsection{Plantilla}
-\cppfile{general_clean/plantilla.cpp}
-
-\subsection{Compilar}
-\pythonfile{general_clean/compilar.sh}
 
 %############### Geometry Clean ###############
 
@@ -280,12 +270,6 @@
 \subsection{Berlekamp Massey}
 \cppfile{math_clean/berlekamp_massey.cpp}
 
-\subsection{Catalan}
-\cppfile{math_clean/catalan.cpp}
-
-\subsection{Coeficientes Binomiales}
-\cppfile{math_clean/coeficientes_binomiales.cpp}
-
 \subsection{Fft Mod}
 \cppfile{math_clean/fft_mod.cpp}
 
@@ -310,9 +294,6 @@
 \subsection{Matrix Reduce}
 \cppfile{math_clean/matrix_reduce.cpp}
 
-\subsection{Polynomial}
-\cppfile{math_clean/polynomial.cpp}
-
 \subsection{Print Int128}
 \cppfile{math_clean/print_int128.cpp}
 
@@ -335,17 +316,11 @@
 \subsection{Criba Phi Euler}
 \cppfile{number_theory_clean/criba_phi_euler.cpp}
 
-\subsection{Criba Primos}
-\cppfile{number_theory_clean/criba_primos.cpp}
-
 \subsection{Discrete Log}
 \cppfile{number_theory_clean/discrete_log.cpp}
 
 \subsection{Discrete Root}
 \cppfile{number_theory_clean/discrete_root.cpp}
-
-\subsection{Divisors}
-\cppfile{number_theory_clean/divisors.cpp}
 
 \subsection{Fast Factorization Mrabin Prho}
 \cppfile{number_theory_clean/fast_factorization_mrabin_prho.cpp}
@@ -382,9 +357,6 @@
 \subsection{Suffix Array}
 \cppfile{strings_clean/suffix_array.cpp}
 
-\subsection{Suffix Automaton}
-\cppfile{strings_clean/suffix_automaton.cpp}
-
 \subsection{Trie}
 \cppfile{strings_clean/trie.cpp}
 
@@ -404,14 +376,8 @@
 \subsection{Hld}
 \cppfile{tree_clean/hld.cpp}
 
-\subsection{Isomorphism Centroid}
-\cppfile{tree_clean/isomorphism_centroid.cpp}
-
 \subsection{Lca}
 \cppfile{tree_clean/LCA.cpp}
-
-\subsection{Link Cut Tree}
-\cppfile{tree_clean/link_cut_tree.cpp}
 
 \subsection{Sm To Large}
 \cppfile{tree_clean/sm_to_large.cpp}

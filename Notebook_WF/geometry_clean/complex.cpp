@@ -1,6 +1,4 @@
 typedef complex<double> complejo;
-#define x real()
-#define y imag()
 complejo a, b, c;
 abs(a); // Devuelve sqrt(a.x^2 + a.y^2)
 arg(a); // Devuelve el angulo entre ( -pi ; pi ]

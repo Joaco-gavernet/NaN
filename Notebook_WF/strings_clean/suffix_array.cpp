@@ -1,4 +1,3 @@
-#define RB(x) (x<n?r[x]:0)
 void csort(vector<int>& sa, vector<int>& r, int k){
     int n=sa.size();
     vector<int> f(max(255,n),0),t(n);
@@ -64,7 +63,6 @@ ll count_substring(string &pal) {
     for(int u : lcp) ans -= (ll)u;
     return ans;
 }
-#define SZ(a) ((int)a.size())
 string lcsubstr(string s, string t) {
     string r = s + '#' + t + '$';
     int best = 0; int pos = 0;
