@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.6)  9 AUG 2025 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.6)  1 MAR 2026 19:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/matif/Documents/NaN/Notebook_WF/estufa.tex
-(c:/Users/matif/Documents/NaN/Notebook_WF/estufa.tex
+**c:/Users/matif/Documents/NaN/Notebook_PDA26/estufa.tex
+(c:/Users/matif/Documents/NaN/Notebook_PDA26/estufa.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
 (C:\Users\matif\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -330,9 +330,9 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 )
 
 LaTeX Warning: Unused global option(s):
-    [portrait].
+    [9pt,portrait].
 
-(c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.aux)
+(C:\Users\matif\Documents\NaN\Notebook_PDA26\build\estufa.aux)
 \openout1 = `estufa.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
@@ -354,7 +354,7 @@ LaTeX Font Info:    ... okay on input line 122.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 122.
 LaTeX Font Info:    ... okay on input line 122.
 Package hyperref Info: Link coloring OFF on input line 122.
- (c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.out) (c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.out)
+ (C:\Users\matif\Documents\NaN\Notebook_PDA26\build\estufa.out) (C:\Users\matif\Documents\NaN\Notebook_PDA26\build\estufa.out)
 \@outlinefile=\write3
 \openout3 = `estufa.out'.
 
@@ -378,198 +378,154 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\matif\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-<NaN.png, id=375, 3011.25pt x 3011.25pt>
-File: NaN.png Graphic file (type png)
-<use NaN.png>
-Package pdftex.def Info: NaN.png  used on input line 126.
-(pdftex.def)             Requested size: 156.49014pt x 156.45265pt.
- (c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 134.
+ (general/plantilla.cpp) (general/compilar.sh) (data_structures_clean/compresion_de_coordenadas.cpp) (data_structures_clean/dsu.cpp)
+
+(data_structures_clean/implicit_treap.cpp
+
+[1{C:/Users/matif/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+]) (data_structures_clean/indexed_set.cpp) (data_structures_clean/lazy-propagation.cpp
+
+) (data_structures_clean/Mo_DQuery.cpp
+
+[2]) (data_structures_clean/persistent.cpp
+
+) (data_structures_clean/segtree-iterative.cpp) (data_structures_clean/segtree_2d.cpp)
+
+[3] (dp_clean/CHT_Dynamic.cpp) (dp_clean/divide_and_conquer_dp_opt.cpp
+
+) (dp_clean/Knapsack_weighted.cpp) (dp_clean/knuth_division_dp_opt.cpp
+
+[4]) (dp_clean/LIS.cpp) (geometry_clean/angular_sort.cpp) (geometry_clean/calipers.cpp
+
+) (geometry_clean/closest_points_Monogon.cpp) (geometry_clean/convex_hull.cpp
+
+[5]) (geometry_clean/formulas.cpp) (geometry_clean/intersection_all.cpp
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[6]) (geometry_clean/point_in_poly.cpp) (geometry_clean/template_punto.cpp
+
+) (geometry_clean/minimum_enclosing_circle.cpp) (grafos_clean/2SAT.cpp
+
+[7]) (grafos_clean/bellman_ford.cpp
+
+) (grafos_clean/biconnected.cpp
+
+[8]) (grafos_clean/blossom.cpp
+
+) (grafos_clean/componentes_fuertemente_conexas.cpp) (grafos_clean/dijkstra.cpp
+
+[9]) (grafos_clean/dinic.cpp)
+
+(grafos_clean/dynamic_connectivity.cpp
+
+[10]) (grafos_clean/eulerian_cycle.cpp) (grafos_clean/floyd_warshall.cpp) (grafos_clean/FordFulkerson.cpp
+
+) (grafos_clean/hungarian.cpp
+
+[11]) (grafos_clean/max_flow_min_cost_multiedge.cpp
+
+) (grafos_clean/min_cost_flow.cpp
+
+[12]) (grafos_clean/MST_Directed.cpp
+
+) (grafos_clean/toposort.cpp)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 278.
  (C:\Users\matif\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 278.
  (C:\Users\matif\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-)
-\tf@toc=\write4
-\openout4 = `estufa.toc'.
+[13] (math_clean/fft_mod.cpp)
 
+(math_clean/fht.cpp) (math_clean/gauss_sistema_ecuaciones.cpp
 
-
-[1{C:/Users/matif/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-
- <./NaN.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 134.
- (general/plantilla.cpp) (general/compilar.sh) (data_structures_clean/compresion_de_coordenadas.cpp
-
-) (data_structures_clean/dsu.cpp) (data_structures_clean/implicit_treap.cpp
-
-[2]) (data_structures_clean/indexed_set.cpp) (data_structures_clean/lazy-propagation.cpp
-
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[3] (data_structures_clean/Mo_DQuery.cpp) (data_structures_clean/persistent.cpp
-
-) (data_structures_clean/segtree-iterative.cpp
-
-[4]) (dp_clean/CHT_Dynamic.cpp) (dp_clean/divide_and_conquer_dp_opt.cpp
-
-) (dp_clean/Knapsack_weighted.cpp
-
-[5]) (dp_clean/knuth_division_dp_opt.cpp) (dp_clean/LIS.cpp) (general_clean/plantilla.cpp
-
-) (general_clean/compilar.sh) (geometry_clean/angular_sort.cpp) (geometry_clean/calipers.cpp
-
-[6]) (geometry_clean/closest_points_Monogon.cpp
-
-) (geometry_clean/complex.cpp) (geometry_clean/convex_hull.cpp) (geometry_clean/formulas.cpp
-
-[7]) (geometry_clean/intersection_all.cpp
-
-) (geometry_clean/point_in_poly.cpp
-
-[8]) (geometry_clean/template_punto.cpp)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-(grafos_clean/2SAT.cpp) (grafos_clean/bellman_ford.cpp
-
-[9]) (grafos_clean/biconnected.cpp
-
-) (grafos_clean/blossom.cpp
-
-[10]) (grafos_clean/componentes_fuertemente_conexas.cpp
-
-) (grafos_clean/dinic.cpp
-
-[11]) (grafos_clean/dynamic_Connectivity.cpp
-
-) (grafos_clean/eulerian_cycle.cpp
-
-[12]) (grafos_clean/floyd_warshall.cpp) (grafos_clean/FordFulkerson.cpp
-
-) (grafos_clean/hungarian.cpp
-
-[13]) (grafos_clean/max_flow_min_cost_multiedge.cpp
-
-) (grafos_clean/min_cost_flow.cpp
-
-[14]) (grafos_clean/toposort.cpp) (math_clean/bell.cpp
-
-) (math_clean/berlekamp_massey.cpp) (math_clean/catalan.cpp) (math_clean/coeficientes_binomiales.cpp)
-
-[15] (math_clean/fft_mod.cpp
-
-) (math_clean/fht.cpp) (math_clean/gauss_sistema_ecuaciones.cpp
-
-[16]) (math_clean/inverse_matrix.cpp
+[14]) (math_clean/inverse_matrix.cpp
 
 ) (math_clean/lagrange.cpp) (math_clean/linear_rec.cpp
 
-[17]) (math_clean/matrix_fast_pow.cpp) (math_clean/matrix_reduce.cpp
+[15]) (math_clean/matrix_fast_pow.cpp) (math_clean/matrix_reduce.cpp) (math_clean/print_int128.cpp
 
-) (math_clean/polynomial.cpp
+) (math_clean/random.cpp) (math_clean/simplex.cpp
 
-[18]) (math_clean/print_int128.cpp) (math_clean/random.cpp
+[16]) (number_theory_clean/binexp_invmod.cpp) (number_theory_clean/criba_primos.cpp) (number_theory_clean/discrete_log.cpp
 
-) (math_clean/simplex.cpp
+) (number_theory_clean/discrete_root.cpp) (number_theory_clean/divisors.cpp
 
-[19]) (math_clean/simpson.cpp) (number_theory_clean/binexp_invmod.cpp) (number_theory_clean/criba_phi_euler.cpp) (number_theory_clean/criba_primos.cpp
+[17]) (number_theory_clean/fast_factorization_mrabin_prho.cpp
 
-) (number_theory_clean/discrete_log.cpp) (number_theory_clean/discrete_root.cpp
+) (number_theory_clean/teo_chino_resto.cpp
 
-[20]) (number_theory_clean/divisors.cpp) (number_theory_clean/fast_factorization_mrabin_prho.cpp
-
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[21] (number_theory_clean/teo_chino_resto.cpp) (Python_clean/numbs.py
+[18]) (Python_clean/numbs.py
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[22]
+[19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+) (Python_clean/strings.py) (strings_clean/aho_corasick.cpp
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-) (Python_clean/strings.py
-
-[24]) (strings_clean/aho_corasick.cpp
-
-) (strings_clean/hashing.cpp) (strings_clean/manacher.cpp
-
-[25]) (strings_clean/prefix_function.cpp) (strings_clean/suffix_array.cpp
+[20]) (strings_clean/dynamic_Hash.cpp
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[26]) (strings_clean/suffix_automaton.cpp
-Overfull \hbox (69.02716pt too wide) in paragraph at lines 42--43
-[][][][] 
- []
+[21]) (strings_clean/dynamic_Hash.cpp.bak
+
+) (strings_clean/hashing.cpp
+
+[22]) (strings_clean/manacher.cpp) (strings_clean/prefix_function.cpp) (strings_clean/suffix_array.cpp
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-) (strings_clean/trie.cpp) (strings_clean/z_function.cpp) (tree_clean/centroid_cses.cpp
+[23]) (strings_clean/suffix_automaton.cpp) (strings_clean/z_function.cpp
 
-[27]) (tree_clean/dynamic_connectivity.cpp
+) (tree_clean/centroid_cses.cpp) (tree_clean/hld.cpp
 
-) (tree_clean/hld.cpp
+[24]) (tree_clean/LCA.cpp
 
-[28]) (tree_clean/isomorphism_centroid.cpp
+) (tree_clean/sm_to_large.cpp)
 
-) (tree_clean/LCA.cpp
-
-[29]) (tree_clean/link_cut_tree.cpp) (tree_clean/sm_to_large.cpp
-
-)
-
-[30] 
+[25] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
-(c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.aux)
+(C:\Users\matif\Documents\NaN\Notebook_PDA26\build\estufa.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
  ***********
 Package rerunfilecheck Info: File `estufa.out' has not changed.
-(rerunfilecheck)             Checksum: ED1C3BF5D48FF4D1BEDCCAF010D61DFB;10871.
+(rerunfilecheck)             Checksum: A370434A23A65E4FF9828D80ACFB2016;9940.
  ) 
 Here is how much of TeX's memory you used:
- 19411 strings out of 468148
- 300585 string characters out of 5431062
- 1915596 words of memory out of 5000000
- 44430 multiletter control sequences out of 15000+600000
- 631712 words of font info for 59 fonts, out of 8000000 for 9000
+ 18839 strings out of 468148
+ 291208 string characters out of 5431062
+ 1962583 words of memory out of 5000000
+ 44296 multiletter control sequences out of 15000+600000
+ 636059 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,80p,313b,2079s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\matif\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on c:\Users\matif\Documents\NaN\Notebook_WF\build\estufa.pdf (30 pages, 4860759 bytes).
+ 75i,12n,79p,316b,2080s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\matif\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/matif/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on C:\Users\matif\Documents\NaN\Notebook_PDA26\build\estufa.pdf (25 pages, 698668 bytes).
 PDF statistics:
- 4315 PDF objects out of 5155 (max. 8388607)
- 3143 named destinations out of 3580 (max. 500000)
- 750 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3698 PDF objects out of 4296 (max. 8388607)
+ 2723 named destinations out of 2984 (max. 500000)
+ 673 words of extra memory for PDF output out of 10000 (max. 10000000)
 
