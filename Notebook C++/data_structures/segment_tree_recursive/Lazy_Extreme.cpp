@@ -1,10 +1,13 @@
 typedef long long tipo;
-const int NEUT = 0; // REMINDER !!! 
+
+const int NEUT_QUERY = 0; // REMINDER !!! 
+const int NEUT_UPDATE = 0; // REMINDER !!! 
 
 struct node {
-	tipo ans, l, r, lazy = 0;
+	tipo l, r;
+    tipo ans=NEUT_QUERY, lazy=NEUT_UPDATE;
 	bool upd = false;
-	node() { ans = lazy = 0; upd = false; l = r = -1; } // REMINDER !!! SET NEUT
+	node() { upd = false; l = r = -1; } // REMINDER !!! SET NEUT
 	node(tipo val, int pos) : ans(val), l(pos), r(pos) {} // Set node
 	void set_lazy(tipo x) { lazy += x; upd = true; }
 };
@@ -26,7 +29,7 @@ struct segtree_lazy {
 	}
 
 	void reset_lazy(node &cur) {
-		cur.lazy = 0; cur.upd = false; //Poner el neutro del update
+		cur.lazy = NEUT_UPDATE; cur.upd = false; //Poner el neutro del update
 	}
 	
 	void push(int p) {
