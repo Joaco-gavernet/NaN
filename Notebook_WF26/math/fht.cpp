@@ -1,0 +1,23 @@
+ll c1[MAXN+9],c2[MAXN+9];  // MAXN=pow2
+void fht(ll* p, int n, bool inv){
+    for(int l=1;2*l<=n;l*=2)for(int i=0;i<n;i+=2*l)forn(j,l){
+        ll u=p[i+j],v=p[i+l+j];
+        if(!inv)p[i+j]=u+v,p[i+l+j]=u-v; // XOR
+        else p[i+j]=(u+v)/2,p[i+l+j]=(u-v)/2;
+        //if(!inv)p[i+j]=v,p[i+l+j]=u+v; // AND
+        //else p[i+j]=-u+v,p[i+l+j]=u;
+        //if(!inv)p[i+j]=u+v,p[i+l+j]=u; // OR
+        //else p[i+j]=v,p[i+l+j]=u-v;
+    }
+}
+
+vi multiply(vi &p1, vi &p2){
+    int n=1<<(32-__builtin_clz(max(SZ(p1),SZ(p2))-1));
+    forn(i,n)c1[i]=0,c2[i]=0;
+    forn(i,SZ(p1))c1[i]=p1[i];
+    forn(i,SZ(p2))c2[i]=p2[i];
+    fht(c1,n,false);fht(c2,n,false);
+    forn(i,n)c1[i]*=c2[i];
+    fht(c1,n,true);
+    return vi(c1,c1+n);
+}
