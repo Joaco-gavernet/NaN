@@ -12,8 +12,7 @@ move as the team prepares for events or discovers correctness issues.
   representative C++ smoke tests.
 - [x] Verify the current WF26 and PDA26 notebooks compile from canonical
   sources.
-- [ ] Make the PDF build deterministic in a clean environment.
-- [ ] Publish the current World Finals notebook as a tagged GitHub release.
+- [x] Publish the current World Finals notebook as a tagged GitHub release.
 
 ## Expand correctness coverage
 
@@ -30,6 +29,7 @@ move as the team prepares for events or discovers correctness issues.
 
 ## Improve the maintainer workflow
 
+- Make the PDF build deterministic in a clean environment.
 - Introduce issue forms for bug reports and algorithm proposals.
 - Automate notebook-diff summaries for pull requests.
 - Prototype human-approved, Codex-assisted review notes for complexity,
