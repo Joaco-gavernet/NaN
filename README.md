@@ -55,7 +55,7 @@ generated compact copies used by the PDF builder; do not edit them directly.
 Requirements:
 
 - Python 3.10 or newer;
-- `latexmk` and a LaTeX distribution with `pdflatex`; and
+- either `latexmk` with `pdflatex`, or the self-contained Tectonic engine; and
 - a POSIX-compatible shell.
 
 To rebuild the current notebook:
@@ -66,7 +66,9 @@ cd Notebook_WF26
 ```
 
 The generator refreshes the `_clean` directories, assembles `estufa.tex`, and
-builds `estufa.pdf`. Review all generated changes before committing them.
+builds `estufa.pdf` and the release-ready `UNLP-NAN-Notebook.pdf`. Tectonic
+downloads its required package bundle on the first build. Review all generated
+changes before committing them.
 
 ## Validate changes
 

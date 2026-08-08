@@ -7,16 +7,18 @@ move as the team prepares for events or discovers correctness issues.
 
 - [x] Confirm contributor agreement and publish a project-wide open-source
   license.
-- [ ] Audit current snippets for provenance and preserve compatible upstream
-  attribution.
 - [x] Document the repository structure, build process, and contribution rules.
 - [x] Add lightweight CI for Python syntax, generated-notebook integrity, and
   representative C++ smoke tests.
+- [x] Verify the current WF26 and PDA26 notebooks compile from canonical
+  sources.
 - [ ] Make the PDF build deterministic in a clean environment.
 - [ ] Publish the current World Finals notebook as a tagged GitHub release.
 
 ## Expand correctness coverage
 
+- Audit current snippets for provenance and preserve compatible upstream
+  attribution.
 - Add a manifest recording each canonical snippet's owner, provenance,
   complexity, assumptions, and test status.
 - Grow the C++ smoke suite across graphs, geometry, number theory, strings, and
