@@ -1,3 +1,4 @@
+// TODO(provenance): document the original source before the first OSS release.
 const int K = 26;
 struct Vertex {
     int next[K];
@@ -27,4 +28,4 @@ bool find(string &pal) {
         if(cur == -1) return false;
     }
     return true;
-}  
+}

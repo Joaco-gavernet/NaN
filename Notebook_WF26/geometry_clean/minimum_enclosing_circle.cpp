@@ -1,3 +1,4 @@
+// TODO(provenance): document the original source before the first OSS release.
 punto getCircleCenter(punto a, punto b) {
     ld x = a.mod2(), y = b.mod2(), z = a^b;
     return {(b.y * x - a.y * y) / (2 * z),(a.x * y - b.x * x) / (2 * z) };

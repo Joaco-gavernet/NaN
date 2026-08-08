@@ -179,7 +179,7 @@ output = all(x%2 == 0 for x in nums)
 output = any(x == 0 for x in nums)
 
 # Check if string is palindrome
-is_pal = all(s[i] == s[~i] for i in range(len(s)//2)
+is_pal = all(s[i] == s[~i] for i in range(len(s)//2))
 
 from itertools import permutations, combinations
 
