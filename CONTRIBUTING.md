@@ -15,6 +15,8 @@ collection of unreviewed snippets.
 
 English and Spanish are both welcome in discussions. Prefer English for new
 public documentation and identifiers when it does not make the code less clear.
+By submitting a contribution, you agree that it may be distributed under the
+project's [MIT License](LICENSE).
 
 ## Where changes belong
 

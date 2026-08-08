@@ -96,12 +96,10 @@ See [ROADMAP.md](ROADMAP.md) for current priorities and [RELEASING.md](RELEASING
 for the release process. Event snapshots use calendar-oriented versions such as
 `v2026.1`.
 
-## License status
+## License
 
-A project-wide open-source license is being finalized with contributors. Until
-a `LICENSE` file is added, the repository is public for review but does not
-grant general reuse rights. Third-party material must retain its attribution
-and use a compatible license.
+NaN is available under the [MIT License](LICENSE). Third-party material must
+retain its attribution and use a compatible license.
 
 [unlp-2025]: https://www.radiouniversidad.unlp.edu.ar/estudiantes-de-la-unlp-fueron-premiados-en-mundial-de-programacion/
 [unlp-2026]: https://unlp.edu.ar/institucional/estudiantes-de-la-unlp-en-la-final-de-un-certamen-internacional-de-programacion-119503/

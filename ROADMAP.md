@@ -5,7 +5,7 @@ move as the team prepares for events or discovers correctness issues.
 
 ## Release `v2026.1`: OSS-ready foundation
 
-- [ ] Confirm contributor agreement and publish a project-wide open-source
+- [x] Confirm contributor agreement and publish a project-wide open-source
   license.
 - [ ] Audit current snippets for provenance and preserve compatible upstream
   attribution.
