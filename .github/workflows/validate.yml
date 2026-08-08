@@ -1,0 +1,39 @@
+name: Validate notebooks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Python syntax
+        run: >-
+          python3 -m compileall -q scripts Notebook_WF26 Notebook_PDA26
+          Notebook_WF "Notebook C++"
+
+      - name: Validate generated notebook sources
+        run: python3 scripts/validate_notebooks.py
+
+      - name: Compile representative C++ snippets
+        run: >-
+          g++ -std=gnu++20 -Wall -Wextra -Werror tests/smoke.cpp
+          -o /tmp/nan-smoke
+
+      - name: Run representative C++ snippets
+        run: /tmp/nan-smoke

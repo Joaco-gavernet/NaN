@@ -27,4 +27,4 @@ bool find(string &pal) {
         if(cur == -1) return false;
     }
     return true;
-}  
+}

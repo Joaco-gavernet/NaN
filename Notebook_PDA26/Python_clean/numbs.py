@@ -75,7 +75,7 @@ x = bisect_left(l, 2) # Returns 1 (index of first occurence of 2)
 x = bisect_right(l, 2) # Returns 3 (1 + index of last occurence of 2)
 output = all(x%2 == 0 for x in nums) # Check if list has all even numbers
 output = any(x == 0 for x in nums) # Check if list has one or more zero value
-is_pal = all(s[i] == s[~i] for i in range(len(s)//2) # Check if string is palindrome
+is_pal = all(s[i] == s[~i] for i in range(len(s)//2)) # Check if string is palindrome
 from itertools import permutations, combinations
 items = ["A", "B", "C"]
 for c in combinations(items, 2):
@@ -125,7 +125,8 @@ if not s:
 s = set([1,2])
 for i, x in enumerate(s): # Iterating over set
     print(f"Insertion Index {i} : Element : {x}")
-s1 = {1,2,3}, s2 = {3,4,5}
+s1 = {1,2,3}
+s2 = {3,4,5}
 union_set = s1 | s2 # {1,2,3,4,5}
 intersection_set = s1 & s2 # {3}
 diff_set = s1 - s2 # {1,2}
