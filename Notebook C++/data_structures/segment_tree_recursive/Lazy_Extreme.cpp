@@ -1,10 +1,10 @@
 typedef long long tipo;
 
-const int NEUT_QUERY = 0; // REMINDER !!! 
-const int NEUT_UPDATE = 0; // REMINDER !!! 
+const tipo NEUT_QUERY = 0; // REMINDER !!! 
+const tipo NEUT_UPDATE = 0; // REMINDER !!! 
 
 struct node {
-	tipo l, r;
+	int l, r;
     tipo ans=NEUT_QUERY, lazy=NEUT_UPDATE;
 	bool upd = false;
 	node() { upd = false; l = r = -1; } // REMINDER !!! SET NEUT
