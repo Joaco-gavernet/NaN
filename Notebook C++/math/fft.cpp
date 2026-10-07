@@ -1,15 +1,17 @@
+
 typedef long long tipo;
+typedef long double ld; 
 
 struct CD{
-    double r,i;
-    CD(double r=0,double i=0):r(r),i(i){}
-    double real()const{return r;}
+    ld r,i;
+    CD(ld r=0,ld i=0):r(r),i(i){}
+    ld real()const{return r;}
     void operator /=(const tipo c){r/=c; i/=c;}
 };
 CD operator*(const CD& a, const CD& b){return CD(a.r*b.r-a.i*b.i,a.r*b.i+a.i*b.r);}
 CD operator+(const CD& a, const CD& b){return CD(a.r+b.r,a.i+b.i);}
 CD operator-(const CD& a, const CD& b){return CD(a.r-b.r,a.i-b.i);}
-const double pi=acos(-1);
+const ld pi=acos(-1);
 const tipo MAXN=1<<21;
 CD cp1[MAXN+9],cp2[MAXN+9];
 tipo R[MAXN+9];
@@ -17,7 +19,7 @@ tipo R[MAXN+9];
 void dft(CD* a, tipo n, bool inv){
     forn(i, n) if(R[i]<i) swap(a[R[i]],a[i]);
     for(int m=2;m<=n;m*=2){
-        double z=2*pi/m*(inv?-1:1);
+        ld z=2*pi/m*(inv?-1:1);
         CD wi=CD(cos(z),sin(z));
         for(int j=0;j<n;j+=m){
             CD w(1);
@@ -28,6 +30,7 @@ void dft(CD* a, tipo n, bool inv){
     }
     if(inv) forn(i,n) a[i]/=n;
 }
+
 vector<tipo> multiply(vector<tipo> &p1, vector<tipo> &p2){
     tipo n=SZ(p1)+SZ(p2)+1;
     tipo m=1,cnt=0;
