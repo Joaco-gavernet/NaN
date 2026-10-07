@@ -9,7 +9,7 @@
 //
 // Existencia undirected:
 // Path: Que el start y final tengan deg impar, el resto todo par
-// Cycle: Todos los nodos in_deg=out_deg
+// Cycle: Todos los nodos tienen grado par
 
 // Directed version (uncomment commented code for undirected)
 struct edge {
