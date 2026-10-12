@@ -1,10 +1,8 @@
-typedef long double ld;
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
 ll myrand(ll a, ll b) { return uniform_int_distribution<ll>(a, b)(rng); }
 struct Factorization {
-    inline ll mul(ll a, ll b, ll c){
-        ll s = a * b - c * ll((ld) a / c * b + 0.5);
-        return s < 0 ? s + c : s;
+    inline ll mul(ll a, ll b, ll mod){
+        return (__int128)a * b % mod;
     }
     ll be(ll a, ll k, ll mod) {
         ll res = 1;
@@ -12,6 +10,7 @@ struct Factorization {
         return res;
     }
     bool miller(ll n) {
+        if (n < 2) return false;
         auto test = [&](ll n, ll a) {
             if (n == a) return true;
             if (n % 2 == 0) return false;
@@ -24,7 +23,7 @@ struct Factorization {
             return r == n - 1 || d & 1;
         };
         if(n == 2) return 1;
-        for(auto p: vi{2, 3, 5, 7, 11, 13}) if(!test(n, p)) return 0;
+        for(auto p: vi{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) if(!test(n, p)) return 0;
         return 1;
     }
     ll pollard(ll n) { 
