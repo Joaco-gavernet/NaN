@@ -1,0 +1,126 @@
+# Ordered World Finals selection; all algorithm paths refer to the full library.
+title = "World Finals 2026"
+
+[[sections]]
+title = "Contest Setup"
+entries = [
+  { path = "templates/cpp/fast_io.cpp", title = "Fast IO" },
+  { path = "templates/cpp/compiler_notes.sh", title = "Compiler Notes" },
+]
+
+[[sections]]
+title = "Data Structures"
+entries = [
+  { path = "algorithms/data_structures/coordinate_compression_wf26.cpp", title = "Coordinate Compression" },
+  { path = "algorithms/data_structures/dsu.cpp", title = "DSU" },
+  { path = "algorithms/data_structures/implicit_treap.cpp", title = "Implicit Treap" },
+  { path = "algorithms/data_structures/indexed_set_wf26.cpp", title = "Indexed Set" },
+  { path = "algorithms/data_structures/segment_tree_recursive/lazy_extreme_wf26.cpp", title = "Lazy Extreme" },
+  { path = "algorithms/data_structures/mo_distinct_queries.cpp", title = "Mo Distinct Queries" },
+  { path = "algorithms/data_structures/segment_tree_recursive/persistent.cpp", title = "Persistent" },
+  { path = "algorithms/data_structures/segment_tree_iterative/segtree_range_query_wf26.cpp", title = "Segtree Range Query" },
+  { path = "algorithms/data_structures/segment_tree_iterative/segtree_2d_wf26.cpp", title = "Segtree 2D" },
+]
+
+[[sections]]
+title = "Dynamic Programming"
+entries = [
+  { path = "algorithms/dynamic_programming/convex_hull_trick_dynamic_wf26.cpp", title = "Convex Hull Trick Dynamic" },
+  { path = "algorithms/dynamic_programming/divide_and_conquer_optimization_wf26.cpp", title = "Divide And Conquer Optimization" },
+  { path = "algorithms/dynamic_programming/knapsack_weighted_wf26.cpp", title = "Knapsack Weighted" },
+  { path = "algorithms/dynamic_programming/knuth_optimization_wf26.cpp", title = "Knuth Optimization" },
+  { path = "algorithms/dynamic_programming/lis_wf26.cpp", title = "Lis" },
+]
+
+[[sections]]
+title = "Geometry"
+entries = [
+  { path = "algorithms/geometry/angular_sort.cpp", title = "Angular Sort" },
+  { path = "algorithms/geometry/calipers.cpp", title = "Calipers" },
+  { path = "algorithms/geometry/closest_points_monogon.cpp", title = "Closest Points Monogon" },
+  { path = "algorithms/geometry/convex_hull_wf26.cpp", title = "Convex Hull" },
+  { path = "algorithms/geometry/formulas_wf26.cpp", title = "Formulas" },
+  { path = "algorithms/geometry/intersection_all.cpp", title = "Intersection All" },
+  { path = "algorithms/geometry/minimum_enclosing_circle.cpp", title = "Minimum Enclosing Circle" },
+  { path = "algorithms/geometry/point_in_polygon_wf26.cpp", title = "Point In Polygon" },
+  { path = "algorithms/geometry/point_wf26.cpp", title = "Point" },
+]
+
+[[sections]]
+title = "Graphs"
+entries = [
+  { path = "algorithms/graphs/two_sat_wf26.cpp", title = "Two Sat" },
+  { path = "algorithms/graphs/bellman_ford_wf26.cpp", title = "Bellman Ford" },
+  { path = "algorithms/graphs/biconnected_wf26.cpp", title = "Biconnected" },
+  { path = "algorithms/graphs/flow/blossom_wf26.cpp", title = "Blossom" },
+  { path = "algorithms/graphs/strongly_connected_components_wf26.cpp", title = "Strongly Connected Components" },
+  { path = "algorithms/graphs/dijkstra_wf26.cpp", title = "Dijkstra" },
+  { path = "algorithms/graphs/flow/dinic.cpp", title = "Dinic" },
+  { path = "algorithms/graphs/dynamic_connectivity_wf26.cpp", title = "Dynamic Connectivity" },
+  { path = "algorithms/graphs/eulerian_cycle.cpp", title = "Eulerian Cycle" },
+  { path = "algorithms/graphs/floyd_warshall_wf26.cpp", title = "Floyd Warshall" },
+  { path = "algorithms/graphs/ford_fulkerson_wf26.cpp", title = "Ford Fulkerson" },
+  { path = "algorithms/graphs/flow/hungarian_wf26.cpp", title = "Hungarian" },
+  { path = "algorithms/graphs/flow/max_flow_min_cost_multiedge.cpp", title = "Max Flow Min Cost Multiedge" },
+  { path = "algorithms/graphs/flow/min_cost_flow_wf26.cpp", title = "Min Cost Flow" },
+  { path = "algorithms/graphs/directed_mst.cpp", title = "Directed Mst" },
+  { path = "algorithms/graphs/topological_sort_wf26.cpp", title = "Topological Sort" },
+]
+
+[[sections]]
+title = "Math"
+cheatsheet = "notebook/cheatsheets/math.tex"
+entries = [
+  { path = "algorithms/math/fft_mod_wf26.cpp", title = "FFT Mod" },
+  { path = "algorithms/math/fht_wf26.cpp", title = "Fht" },
+  { path = "algorithms/math/gaussian_elimination_wf26.cpp", title = "Gaussian Elimination" },
+  { path = "algorithms/math/inverse_matrix_wf26.cpp", title = "Inverse Matrix" },
+  { path = "algorithms/math/lagrange_wf26.cpp", title = "Lagrange" },
+  { path = "algorithms/math/linear_rec.cpp", title = "Linear Rec" },
+  { path = "algorithms/math/matrix_fast_pow.cpp", title = "Matrix Fast Pow" },
+  { path = "algorithms/math/matrix_reduce_wf26.cpp", title = "Matrix Reduce" },
+  { path = "algorithms/math/print_int128_wf26.cpp", title = "Print Int128" },
+  { path = "algorithms/math/random_wf26.cpp", title = "Random" },
+  { path = "algorithms/math/simplex_wf26.cpp", title = "Simplex" },
+]
+
+[[sections]]
+title = "Number Theory"
+entries = [
+  { path = "algorithms/number_theory/binary_exponentiation_inverse_wf26.cpp", title = "Binary Exponentiation Inverse" },
+  { path = "algorithms/number_theory/prime_sieve_wf26.cpp", title = "Prime Sieve" },
+  { path = "algorithms/number_theory/discrete_log_wf26.cpp", title = "Discrete Log" },
+  { path = "algorithms/number_theory/discrete_root.cpp", title = "Discrete Root" },
+  { path = "algorithms/number_theory/divisors.cpp", title = "Divisors" },
+  { path = "algorithms/number_theory/miller_rabin_pollard_rho.cpp", title = "Miller Rabin Pollard Rho" },
+  { path = "algorithms/number_theory/chinese_remainder_wf26.cpp", title = "Chinese Remainder" },
+]
+
+[[sections]]
+title = "Python"
+entries = [
+  { path = "algorithms/python/numbers_wf26.py", title = "Numbers" },
+  { path = "algorithms/python/strings_wf26.py", title = "Strings" },
+]
+
+[[sections]]
+title = "Strings"
+entries = [
+  { path = "algorithms/strings/aho_corasick.cpp", title = "Aho Corasick" },
+  { path = "algorithms/strings/dynamic_hash_wf26.cpp", title = "Dynamic Hash" },
+  { path = "algorithms/strings/hashing.cpp", title = "Hashing" },
+  { path = "algorithms/strings/manacher_wf26.cpp", title = "Manacher" },
+  { path = "algorithms/strings/prefix_function.cpp", title = "Prefix Function" },
+  { path = "algorithms/strings/suffix_array.cpp", title = "Suffix Array" },
+  { path = "algorithms/strings/suffix_automaton_wf26.cpp", title = "Suffix Automaton" },
+  { path = "algorithms/strings/z_function.cpp", title = "Z Function" },
+]
+
+[[sections]]
+title = "Trees"
+entries = [
+  { path = "algorithms/trees/centroid_cses.cpp", title = "Centroid Cses" },
+  { path = "algorithms/trees/hld.cpp", title = "HLD" },
+  { path = "algorithms/trees/lca_wf26.cpp", title = "LCA" },
+  { path = "algorithms/trees/small_to_large_wf26.cpp", title = "Small To Large" },
+]

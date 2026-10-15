@@ -3,8 +3,7 @@ name: Validate notebooks
 on:
   pull_request:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
@@ -12,28 +11,22 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Check Python syntax
-        run: >-
-          python3 -m compileall -q scripts Notebook_WF26 Notebook_PDA26
-          Notebook_WF "Notebook C++"
-
-      - name: Validate generated notebook sources
+        run: python3 -m compileall -q scripts algorithms tests tools
+      - name: Validate library and notebook selection
         run: python3 scripts/validate_notebooks.py
-
-      - name: Compile representative C++ snippets
-        run: >-
-          g++ -std=gnu++20 -Wall -Wextra -Werror tests/smoke.cpp
-          -o /tmp/nan-smoke
-
-      - name: Run representative C++ snippets
-        run: /tmp/nan-smoke
+      - name: Test notebook generation
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Generate notebook sources without LaTeX
+        run: python3 scripts/build_notebook.py --sources-only
+      - name: Compile and test representative algorithms
+        run: |
+          g++ -std=gnu++20 -Wall -Wextra -Werror tests/smoke.cpp -o /tmp/nan-smoke
+          /tmp/nan-smoke
+          g++ -std=gnu++20 -O2 -Wall -Wextra -Werror -fsanitize=undefined -fno-sanitize-recover=undefined tests/factorization.cpp -o /tmp/nan-factorization
+          /tmp/nan-factorization

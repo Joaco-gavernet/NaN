@@ -29,74 +29,78 @@ America.
 Sources: [UNLP's 2026 qualification announcement][unlp-2026] and
 [UNLP Radio's 2025 World Finals report][unlp-2025].
 
-## Current notebook
+## Find an algorithm
 
-The current competition snapshot is
-[`Notebook_WF26/UNLP-NAN-Notebook.pdf`](Notebook_WF26/UNLP-NAN-Notebook.pdf).
-Its editable sources live in [`Notebook_WF26/`](Notebook_WF26/).
+- **[Full algorithm library](algorithms/README.md):** everything available to study
+  or use, including algorithms outside the contest selection.
+- **[World Finals notebook](notebook/README.md):** the pruned selection, defined by
+  an ordered manifest referencing the library.
+- **[Latest published release](https://github.com/Joaco-gavernet/NaN/releases/latest):**
+  downloadable PDFs for tagged snapshots. A published PDF may predate changes on
+  `main`; build locally for the current selection.
 
-The repository also preserves earlier or event-specific snapshots:
-
-| Directory | Purpose |
+| Directory | What belongs here |
 | --- | --- |
-| [`Notebook C++/`](Notebook%20C%2B%2B/) | Original, broader C++ notebook |
-| [`Notebook_WF/`](Notebook_WF/) | Previous World Finals snapshot |
-| [`Notebook_PDA26/`](Notebook_PDA26/) | Programadores de América 2026 snapshot |
-| [`Notebook_WF26/`](Notebook_WF26/) | Current World Finals 2026 snapshot |
-| [`Apuntes/`](Apuntes/) | Topic notes and worked examples |
-| [`Guia_Problemas/`](Guia_Problemas/) | Practice-problem material |
+| [algorithms/](algorithms/README.md) | Maintained algorithm sources, organized by topic |
+| [notebook/](notebook/README.md) | World Finals selection, display order, LaTeX layout, cheatsheets |
+| [templates/](templates/README.md) | Contest setup and solution templates |
+| [tests/](tests/README.md) | Automated correctness and build checks |
+| [tools/stress/](tools/stress/README.md) | Manual stress-testing helpers |
+| [study/](study/) | Notes and practice problems |
+| [scripts/](scripts/) | Build and repository validation |
+| [docs/](docs/) | Maintenance, releases, and consolidation decisions |
+| [archive/](archive/README.md) | Historical snapshots and retired material |
+| `build/` | Generated output, ignored by Git |
 
-Within the newer snapshots, editable algorithm sources live in topic folders
-such as `grafos/`, `geometry/`, and `strings/`. Folders ending in `_clean` are
-generated compact copies used by the PDF builder; do not edit them directly.
+The full library and the World Finals notebook share sources. Adding an algorithm
+makes it available in the library; selecting its path in
+[world_finals.toml](notebook/world_finals.toml) includes it in the notebook.
+Distinct implementations retained during consolidation have explicit `_wf26`
+variants. See the [consolidation review](docs/library_consolidation.md) for recent
+changes from the broader collection that still need review before promotion.
 
-## Build a notebook
+## Build the World Finals notebook
 
-Requirements:
-
-- Python 3.10 or newer;
-- either `latexmk` with `pdflatex`, or the self-contained Tectonic engine; and
-- a POSIX-compatible shell.
-
-To rebuild the current notebook:
+Requires Python 3.11+ and either Tectonic or latexmk with pdflatex:
 
 ```bash
-cd Notebook_WF26
-./gen.sh
+python3 scripts/build_notebook.py
 ```
 
-The generator refreshes the `_clean` directories, assembles `estufa.tex`, and
-builds `estufa.pdf` and the release-ready `UNLP-NAN-Notebook.pdf`. Tectonic
-downloads its required package bundle on the first build. Review all generated
-changes before committing them.
+The result is `build/world_finals/notebook.pdf`. Tectonic may download its package
+bundle on its first run. Source copies and intermediate output stay under `build/`;
+there are no generated mirrors beside the maintained sources.
+
+To generate the notebook sources without LaTeX:
+
+```bash
+python3 scripts/build_notebook.py --sources-only
+```
 
 ## Validate changes
 
-The lightweight checks used in CI can be run locally without LaTeX:
-
 ```bash
-python3 -m compileall -q scripts Notebook_WF26 Notebook_PDA26 Notebook_WF "Notebook C++"
+python3 -m compileall -q scripts algorithms tests tools
 python3 scripts/validate_notebooks.py
+python3 -m unittest discover -s tests -p 'test_*.py'
 g++ -std=gnu++20 -Wall -Wextra -Werror tests/smoke.cpp -o /tmp/nan-smoke
 /tmp/nan-smoke
+g++ -std=gnu++20 -O2 -Wall -Wextra -Werror -fsanitize=undefined -fno-sanitize-recover=undefined tests/factorization.cpp -o /tmp/nan-factorization
+/tmp/nan-factorization
 ```
 
-The smoke test compiles and exercises representative snippets directly from the
-current notebook. It does not yet prove every snippet correct; expanding that
-coverage is part of the [maintenance roadmap](ROADMAP.md).
+Use GNU g++; on Homebrew its executable may be named `g++-16`.
+See [tests](tests/README.md) for coverage and limitations. Most snippets still
+need dedicated correctness tests.
 
-## Contributing
+## Contributing and releases
 
-Contributions are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md), which
-explains source placement, provenance requirements, testing, and review. Pull
-requests should be small enough to reason about and will be merged only after
-human review.
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Contributions should state
+assumptions, preserve attribution, and include useful tests. Keep changes small
+enough to review. Pull requests require human review.
 
-## Releases and maintenance
-
-See [ROADMAP.md](ROADMAP.md) for current priorities and [RELEASING.md](RELEASING.md)
-for the release process. Event snapshots use calendar-oriented versions such as
-`v2026.1`.
+See the [roadmap](docs/roadmap.md) and [release process](docs/releasing.md).
+Event snapshots use calendar-oriented versions such as `v2026.1`.
 
 ## License
 

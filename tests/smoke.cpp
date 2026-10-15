@@ -13,9 +13,9 @@ using vi = vector<int>;
 #define forn(index, count) \
     for (int index = 0; index < static_cast<int>(count); ++index)
 
-#include "../Notebook_WF26/data_structures_clean/dsu.cpp"
-#include "../Notebook_WF26/grafos_clean/dijkstra.cpp"
-#include "../Notebook_WF26/strings_clean/z_function.cpp"
+#include "../algorithms/data_structures/dsu.cpp"
+#include "../algorithms/graphs/dijkstra_wf26.cpp"
+#include "../algorithms/strings/z_function.cpp"
 
 int main() {
     DSU components(6);

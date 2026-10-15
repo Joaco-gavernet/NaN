@@ -4,6 +4,7 @@ __pycache__/
 
 # Local compiler output
 *.exe
+*.o
 tests/nan-smoke
 
 # LaTeX intermediate output
