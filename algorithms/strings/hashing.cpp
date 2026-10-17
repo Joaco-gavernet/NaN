@@ -1,10 +1,10 @@
 struct Hash {
-    const ll P=1777771;
-    const ll MOD[2] = {999727999, 1070777777};
-    const ll PI[2] = {325255434, 10018302};
+    static constexpr ll P=1777771;
+    static constexpr ll MOD[2] = {999727999, 1070777777};
+    static constexpr ll PI[2] = {325255434, 10018302};
 
     vector<ll> h[2],pi[2];
-    Hash(string& s){
+    Hash(const string& s){
         forn(k,2)h[k].resize(s.size()+1),pi[k].resize(s.size()+1);
         forn(k,2){
             h[k][0]=0;pi[k][0]=1;
