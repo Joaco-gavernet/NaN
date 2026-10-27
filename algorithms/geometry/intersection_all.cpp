@@ -5,7 +5,7 @@ struct recta { // Puede usarse para segmentos ([p,p+v] o alpha = [0,1])
     recta(tipo A, tipo B, tipo C) { // Transform Ax + By + C = 0 
         v = {-B,A}; A != 0 ? p = {-C / A,0} : p = {0,-C / B}; 
     }
-    bool is_in(punto q){return fabs((q.x-p.x)*v.y - (q.y-p.y)*v.x) < EPS;}
+    bool is_in(punto q){return fabsl((q.x-p.x)*v.y - (q.y-p.y)*v.x) < EPS;}
     punto eval(double x) {return x * v + p;}
 };
 
@@ -33,7 +33,7 @@ struct circ { punto c; tipo r; };
 
 tipo dist_point_line(punto &p, recta &r) {
     punto p1 = r.p, p2 = r.p + r.v; 
-    return fabs((p1-p)^(p2-p))/r.v.mod();
+    return fabsl((p1-p)^(p2-p))/r.v.mod();
 }
 
 punto project(punto a, punto b) { //Proyeccion de b sobre a
@@ -45,7 +45,7 @@ vector<punto> inter_circ_line(recta r, circ c) {
     if(dist > c.r+EPS) return ans;
     (c.c-r.p) * r.v != 0 ? r.p = r.p : r.p = r.p + r.v;
     punto aux = c.c - r.p, dir = project(r.v,aux);
-    if(fabs(dist-c.r) <= EPS) {ans.pb(r.p + dir); return ans;}
+    if(fabsl(dist-c.r) <= EPS) {ans.pb(r.p + dir); return ans;}
     tipo factor = sqrt(c.r*c.r - dist*dist)/dir.mod();
     ans.pb(r.p + dir + factor * dir); ans.pb(r.p + dir - factor * dir);
     return ans;
