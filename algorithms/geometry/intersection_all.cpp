@@ -6,7 +6,7 @@ struct recta { // Puede usarse para segmentos ([p,p+v] o alpha = [0,1])
         v = {-B,A}; A != 0 ? p = {-C / A,0} : p = {0,-C / B}; 
     }
     bool is_in(punto q){return fabsl((q.x-p.x)*v.y - (q.y-p.y)*v.x) < EPS;}
-    punto eval(double x) {return x * v + p;}
+    punto eval(long double x) {return x * v + p;}
 };
 
 bool inter_recta(recta &r1, recta &r2, punto &ans) {
