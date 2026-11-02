@@ -37,11 +37,11 @@ for i in range(0,n,2): # Iterating over range with step size = 2
 # Iterating in reverse
 for i in range(len(nums)): # Option 1
     print(nums[~i])
-for i in range(len(nums), -1, -1): # Option 2
+for i in range(len(nums)-1, -1, -1): # Option 2
     print(nums[i])
 for i in range(len(nums)//2): # Two pointer (left and right end) iteration
-    print(i) # 0,1,2
-    print(~i) # -1 (i.e. 4), -2 (i.e. 3), -3(i.e. 2)
+    print(i) # 0,1 (with 5 elements the middle one is skipped)
+    print(~i) # -1 (i.e. 4), -2 (i.e. 3)
 for x, y in zip(l1, l2): # Iterate over two lists
     print(x)
     print(y)
@@ -65,7 +65,7 @@ nums.sort(key=abs) # Sort based on absolute value
 nums = ["apple", "banana", "cherry"]
 nums.sort(key=len) # Sort based on length
 nums = [(0,1), (3,1), (1,2)]
-nums.sort(key = lambda x : x[1]) # Sorts based on first element
+nums.sort(key = lambda x : x[1]) # Sorts based on second element
 nums = [{"age": 18, "name": "x"}, {"age": 12, "name": "y"}]
 nums.sort(key = lambda x: x["age"]) # Sorts based age
 

@@ -25,7 +25,7 @@ l = []
 l = list()
 
 # Extending an existing list
-l.extend([2,3]) # Changes l to [1,2,3]
+l.extend([2,3]) # Changes l to [2,3]
 
 # Inserting an element at specific index
 l.insert(1, 100)
@@ -87,13 +87,13 @@ for i in range(len(nums)):
     print(nums[~i])
 
 # Option 2
-for i in range(len(nums), -1, -1):
+for i in range(len(nums)-1, -1, -1):
     print(nums[i])
     
 # Two pointer (left and right end) iteration
 for i in range(len(nums)//2):
-    print(i) # 0,1,2
-    print(~i) # -1 (i.e. 4), -2 (i.e. 3), -3(i.e. 2)
+    print(i) # 0,1 (with 5 elements the middle one is skipped)
+    print(~i) # -1 (i.e. 4), -2 (i.e. 3)
 
 # Iterate over two lists
 for x, y in zip(l1, l2):
@@ -133,7 +133,7 @@ nums.sort(key=len) # Sort based on length
 
 # Example 3 (list of tuples)
 nums = [(0,1), (3,1), (1,2)]
-nums.sort(key = lambda x : x[1]) # Sorts based on first element
+nums.sort(key = lambda x : x[1]) # Sorts based on second element
 
 # Example 4 (list of dictionaries)
 nums = [{"age": 18, "name": "x"}, {"age": 12, "name": "y"}]
