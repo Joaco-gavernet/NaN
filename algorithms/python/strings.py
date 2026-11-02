@@ -18,15 +18,16 @@ x = s.isalnum()
 x = s.isalpha()
 
 # To check if string has all digits
-x = s.isnum()
+x = s.isdigit()
 
 # To check if string has all spaces
-x = isspace()
+x = s.isspace()
 
 # Get unicode/ascii representation of character
 x = ord("b") # Returns 98
 
 # Slicing
+s = "utsav"
 x = s[2:4] # Return "sa"
 
 # Sorting
